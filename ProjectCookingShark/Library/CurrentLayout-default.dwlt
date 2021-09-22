@@ -48,7 +48,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 124
+=======
+  controlID: 105
+>>>>>>> Developer
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +229,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 194
+=======
+  controlID: 106
+>>>>>>> Developer
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +258,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 195
+=======
+  controlID: 107
+>>>>>>> Developer
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -329,9 +341,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 76410000
     m_LastClickedID: 16758
     m_ExpandedIDs: 000000006e41000000ca9a3b
+=======
+    m_SelectedIDs: 5c420000
+    m_LastClickedID: 16988
+    m_ExpandedIDs: 000000004e42000000ca9a3b
+>>>>>>> Developer
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -480,9 +498,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 9a410000
       m_LastClickedID: 16794
       m_ExpandedIDs: 96faffffba410000e2410000f2410000f6410000
+=======
+      m_SelectedIDs: 14f4ffff
+      m_LastClickedID: -3052
+      m_ExpandedIDs: 42fbfffffc410000
+>>>>>>> Developer
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: Azedo
@@ -668,10 +692,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -612.8
     m_HBaseRangeMax: 612.8
     m_VBaseRangeMin: -307.6
     m_VBaseRangeMax: 307.6
+=======
+    m_HBaseRangeMin: -766
+    m_HBaseRangeMax: 766
+    m_VBaseRangeMin: -384.5
+    m_VBaseRangeMax: 384.5
+>>>>>>> Developer
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
