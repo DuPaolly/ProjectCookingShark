@@ -19,5 +19,11 @@ public class Ingrediente : MonoBehaviour
     SaboresExistentes Sabor => sabor;
     [SerializeField] [Range(0, 5)] int intensidade;
     public int Intensidade => intensidade;
+    //
+    [SerializeField] SaboresExistentes sabor02;
+    SaboresExistentes Sabor02 => sabor02;
+    [SerializeField] [Range(0, 5)] int intensidade02;
+    public int Intensidade02 => intensidade02;
+    //
 
 }

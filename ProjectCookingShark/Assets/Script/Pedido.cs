@@ -7,7 +7,6 @@ public class Pedido : MonoBehaviour
     
     //Dictionary<string, Ingrediente> sabor = new Dictionary<string, Ingrediente>();
 
-
     [SerializeField] Sabores.SaboresExistentes sabor01;
     [SerializeField] [Range(0, 10)] int intensidadeSabor01;
     [SerializeField] Sabores.SaboresExistentes sabor02;
