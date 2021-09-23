@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class TestesEDebugs : MonoBehaviour
 {
-    public enum Cor
+    public enum Sabores
     {
-
-        Branco,
-        Preto,
-        Azul,
-        Vermelho
-
+        Amargo,
+        Apimentado,
+        Azedo,
+        Doce,
+        Salgado
     }
 
-    [SerializeField] [Range(0, 5)] int intensidade;
-    [SerializeField] Cor[] umaCor;
- 
+    [SerializeField] string NomeDoIgrediente;
+
+    [SerializeField] string SaborAmargo = "Amargo";
+    [SerializeField] [Range(0, 5)] int intensidadeDoAmargo;
+
+    [SerializeField] string SaborApimentado = "Apimentado";
+    [SerializeField] [Range(0, 5)] int intensidadeDoApimentado;
+
+    [SerializeField] string SaborAzedo = "Azedo";
+    [SerializeField] [Range(0, 5)] int intensidadeDoAzedo;
+
+    [SerializeField] string SaborDoce = "Doce";
+    [SerializeField] [Range(0, 5)] int intensidadeDoDoce;
+
+    [SerializeField] string SaborSalgado = "Salgado";
+    [SerializeField] [Range(0, 5)] int intensidadeDoSalgado;
+
+
 
     //public Cor[] UmaCor => umaCor;
 
