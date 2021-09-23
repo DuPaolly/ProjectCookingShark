@@ -6,14 +6,12 @@ public class Sabores : MonoBehaviour
 {
     public enum SaboresExistentes
     {
-        Doce,
-        Salgado,
+        Amargo,
         Apimentado,
-        Azedo, 
-        Agridoce
+        Azedo,
+        Doce,
+        Salgado
+        
     }
-
-    [SerializeField] SaboresExistentes sabor;
-    SaboresExistentes Sabor => sabor;
 
 }
