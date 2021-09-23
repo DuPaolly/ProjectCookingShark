@@ -15,6 +15,5 @@ public class Sabores : MonoBehaviour
 
     [SerializeField] SaboresExistentes sabor;
     SaboresExistentes Sabor => sabor;
-    [SerializeField] [Range(0, 5)] int intensidade;
-    public int Intensidade => intensidade;
+
 }
