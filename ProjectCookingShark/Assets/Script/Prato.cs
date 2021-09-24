@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Prato : MonoBehaviour
 {
@@ -13,6 +14,42 @@ public class Prato : MonoBehaviour
     [SerializeField] Ingrediente ingredientes02;
     public Ingrediente Ingredientes02 => ingredientes02;
 
-    [SerializeField] Ingrediente ingredientes03;
-    public Ingrediente Ingredientes03 => ingredientes03;
+    Ingrediente saborPremiumIngrediente;
+
+    [SerializeField] IngredientePremium premiumIngredientes;
+    public IngredientePremium PremiumIngredientes => premiumIngredientes;
+
+    public enum IngredientePremium
+    {
+        SemIngredientePremium,
+        ComOPrimeiroIngredientePremium,
+        ComOSegundoIngredientePremium
+    }
+
+
+    private void Update()
+    {
+        ingredientePremium();
+    }
+    
+    void ingredientePremium()
+    {
+        if (premiumIngredientes == IngredientePremium.ComOPrimeiroIngredientePremium)
+        {
+            saborPremiumIngrediente = ingredientes01;
+            Debug.Log("estao iguais manolos");
+        }
+        else if (premiumIngredientes == IngredientePremium.ComOSegundoIngredientePremium)
+        {
+            saborPremiumIngrediente = ingredientes02;
+            Debug.Log("estao iguais manolos, mas ao segundo");
+        }
+        else
+        {
+            Debug.Log("Tem ninguem aqui nao");
+            saborPremiumIngrediente = null;
+        }
+    }
+
+
 }
