@@ -293,6 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomePrato: 
-  ingredientes01: {fileID: 0}
-  ingredientes02: {fileID: 0}
-  ingredientes03: {fileID: 0}
+  ingredientes01: {fileID: 8111745667639169238, guid: 598eb3b355021ba45be2f35a3f773385, type: 3}
+  ingredientes02: {fileID: 3876231358496399754, guid: ed8263e4c6333d749a2b10e048d55abe, type: 3}
+  premiumIngredientes: 0
