@@ -14,4 +14,18 @@ public class Receita : MonoBehaviour
     [SerializeField] Ingrediente ingredientes02;
     public Ingrediente Ingredientes02 => ingredientes02;
 
+    private void Update()
+    {
+        TirarIngredienteDuplicado();
+    }
+
+    private void TirarIngredienteDuplicado()
+    {
+        if (ingredientes01 == ingredientes02 && ingredientes01 != null || ingredientes02 != null)
+        {
+            ingredientes02 = null;
+            //    Debug.Log("vamo apagar esse bagulho?");
+        }
+    }
+
 }

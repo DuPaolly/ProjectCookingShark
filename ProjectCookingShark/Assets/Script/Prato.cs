@@ -29,16 +29,16 @@ public class Prato : Receita
         if (premiumIngredientes == IngredientePremium.PrimeiroIngredientePremium)
         {
             saborPremiumIngrediente = Ingredientes01;
-            Debug.Log("estao iguais manolos");
+            //Debug.Log("estao iguais manolos");
         }
         else if (premiumIngredientes == IngredientePremium.SegundoIngredientePremium)
         {
             saborPremiumIngrediente = Ingredientes02;
-            Debug.Log("estao iguais manolos, mas ao segundo");
+            //Debug.Log("estao iguais manolos, mas ao segundo");
         }
         else
         {
-            Debug.Log("Tem ninguem aqui nao");
+            //Debug.Log("Tem ninguem aqui nao");
             saborPremiumIngrediente = null;
         }
     }
