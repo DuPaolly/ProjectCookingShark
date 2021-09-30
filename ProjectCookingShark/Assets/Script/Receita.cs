@@ -14,6 +14,11 @@ public class Receita : MonoBehaviour
     [SerializeField] Ingrediente ingredientes02;
     public Ingrediente Ingredientes02 => ingredientes02;
 
+    ////public override bool Equals(object other)
+    ////{
+    ////    return base.Equals(other);
+    ////}
+
     private void Update()
     {
         TirarIngredienteDuplicado();
