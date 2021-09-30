@@ -4,5 +4,13 @@ using UnityEngine;
 
 public class CheckerPrato : MonoBehaviour
 {
-    
+    bool pratoExiste = false;
+
+    public void CheckPrato()
+    {
+        //if ()
+        //{
+
+        //}
+    }
 }
