@@ -7,15 +7,46 @@ public class CheckerPrato : MonoBehaviour
     [SerializeField] Prato pratoFeito;
     [SerializeField] Receita[] receitasPossiveis;
 
-    bool pratoExiste = false;
-
-    public bool CheckPrato()
+    bool ingrediente1Achado = false;
+    bool ingrediente2Achado = false;
+    private void Update()
     {
-        //pratoFeito.Ingredientes01.Nome = receitasPossiveis[0].ReceitaPrato;
-        if(pratoFeito.Ingredientes02 == receitasPossiveis[0].Ingredientes01)
+        CheckPrato();
+    }
+    public Receita CheckPrato()
+    {
+        for (int i = 0; i < receitasPossiveis.Length; i++)
         {
-            return !pratoExiste;
+            if (ingrediente1Achado && ingrediente2Achado == false)
+            {
+                if (pratoFeito.Ingredientes01 == receitasPossiveis[i].Ingredientes01 ||
+               pratoFeito.Ingredientes01 == receitasPossiveis[i].Ingredientes02)
+                {
+                    ingrediente1Achado = true;
+                    Debug.Log("ACHEI O 1 MERMAO");
+                }
+                if (pratoFeito.Ingredientes02 == receitasPossiveis[i].Ingredientes02 ||
+                    pratoFeito.Ingredientes02 == receitasPossiveis[i].Ingredientes02)
+                {
+                    ingrediente2Achado = true;
+                    Debug.Log("ACHEI O 2 MERMAO");
+                }
+            }
+            else if(ingrediente1Achado && ingrediente2Achado == true)
+            {
+                Debug.Log("ACHEI A RECEITA MERMAO");
+                return receitasPossiveis[i];
+            }
+            else
+            {
+                Debug.Log("GOROROBAAAAA CHEECKKK");
+                return receitasPossiveis[0];
+            }
+           
         }
-        return pratoExiste;
+        Debug.Log("GOROROBA MANÉ");
+        return receitasPossiveis[0];
     }
 }
+//Debug.Log("VOU RETORNA A RECEITA EM");
+//return receitasPossiveis[i];
