@@ -26,7 +26,7 @@ public class Receita : MonoBehaviour
 
     private void TirarIngredienteDuplicado()
     {
-        if (ingredientes01 == ingredientes02 && ingredientes01 != null || ingredientes02 != null)
+        if (ingredientes01 == ingredientes02)
         {
             ingredientes02 = null;
             //    Debug.Log("vamo apagar esse bagulho?");

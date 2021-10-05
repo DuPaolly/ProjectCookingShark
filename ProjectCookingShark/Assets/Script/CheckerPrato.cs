@@ -17,7 +17,7 @@ public class CheckerPrato : MonoBehaviour
     {
         for (int i = 0; i < receitasPossiveis.Length; i++)
         {
-            if (ingrediente1Achado && ingrediente2Achado == false)
+            if (ingrediente1Achado == false && ingrediente2Achado == false)
             {
                 if (pratoFeito.Ingredientes01 == receitasPossiveis[i].Ingredientes01 ||
                pratoFeito.Ingredientes01 == receitasPossiveis[i].Ingredientes02)
@@ -32,7 +32,7 @@ public class CheckerPrato : MonoBehaviour
                     Debug.Log("ACHEI O 2 MERMAO");
                 }
             }
-            else if(ingrediente1Achado && ingrediente2Achado == true)
+            if(ingrediente1Achado == true && ingrediente2Achado == true)
             {
                 Debug.Log("ACHEI A RECEITA MERMAO");
                 return receitasPossiveis[i];
