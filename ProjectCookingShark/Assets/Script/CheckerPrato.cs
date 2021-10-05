@@ -5,15 +5,17 @@ using UnityEngine;
 public class CheckerPrato : MonoBehaviour
 {
     [SerializeField] Prato pratoFeito;
-    Receita receitaExistente;
-    ListaDeReceitas[] receitasPossiveis;
+    [SerializeField] Receita[] receitasPossiveis;
 
     bool pratoExiste = false;
 
     public bool CheckPrato()
     {
         //pratoFeito.Ingredientes01.Nome = receitasPossiveis[0].ReceitaPrato;
-
-        return pratoExiste = true;
+        if(pratoFeito.Ingredientes02 == receitasPossiveis[0].Ingredientes01)
+        {
+            return !pratoExiste;
+        }
+        return pratoExiste;
     }
 }
