@@ -8,6 +8,6 @@ public class Ingrediente : Sabores
     [SerializeField] string nome;
     public string Nome => nome;
     [SerializeField] Sabores.SaboresExistentes sabor;
-    Sabores.SaboresExistentes Sabor => sabor;
+    public Sabores.SaboresExistentes Sabor => sabor;
 
 }
