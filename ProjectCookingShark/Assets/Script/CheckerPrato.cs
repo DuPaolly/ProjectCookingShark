@@ -18,7 +18,7 @@ public class CheckerPrato : MonoBehaviour
     {
         while (ingrediente1Achado == false || ingrediente2Achado == false) 
         {
-            if (id > receitasPossiveis.Length)
+            if (id >= receitasPossiveis.Length)
             {
                 Debug.Log("GOROROBAAA CHECKKK");
                 return receitasPossiveis[0];
@@ -51,6 +51,7 @@ public class CheckerPrato : MonoBehaviour
                 id--;
             }
         }
+
         Debug.Log("Oia só q receita bunita");
         Debug.Log(receitasPossiveis[id]);
         return receitasPossiveis[id];
