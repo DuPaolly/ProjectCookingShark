@@ -9,44 +9,52 @@ public class CheckerPrato : MonoBehaviour
 
     bool ingrediente1Achado = false;
     bool ingrediente2Achado = false;
+    int  id = 0;
     private void Update()
     {
         CheckPrato();
     }
     public Receita CheckPrato()
     {
-        for (int i = 0; i < receitasPossiveis.Length; i++)
+        while (ingrediente1Achado == false || ingrediente2Achado == false) 
         {
-            if (ingrediente1Achado == false && ingrediente2Achado == false)
+            if (id > receitasPossiveis.Length)
             {
-                if (pratoFeito.Ingredientes01 == receitasPossiveis[i].Ingredientes01 ||
-               pratoFeito.Ingredientes01 == receitasPossiveis[i].Ingredientes02)
-                {
-                    ingrediente1Achado = true;
-                    Debug.Log("ACHEI O 1 MERMAO");
-                }
-                if (pratoFeito.Ingredientes02 == receitasPossiveis[i].Ingredientes02 ||
-                    pratoFeito.Ingredientes02 == receitasPossiveis[i].Ingredientes02)
-                {
-                    ingrediente2Achado = true;
-                    Debug.Log("ACHEI O 2 MERMAO");
-                }
-            }
-            if(ingrediente1Achado == true && ingrediente2Achado == true)
-            {
-                Debug.Log("ACHEI A RECEITA MERMAO");
-                return receitasPossiveis[i];
-            }
-            else
-            {
-                Debug.Log("GOROROBAAAAA CHEECKKK");
+                Debug.Log("GOROROBAAA CHECKKK");
                 return receitasPossiveis[0];
             }
-           
+
+            if (pratoFeito.Ingredientes01 == receitasPossiveis[id].Ingredientes01 ||
+                pratoFeito.Ingredientes01 == receitasPossiveis[id].Ingredientes02)
+            {
+                ingrediente1Achado = true;
+                Debug.Log("Achei o 1");
+            }
+
+            if(pratoFeito.Ingredientes02 == receitasPossiveis[id].Ingredientes01 ||
+                pratoFeito.Ingredientes02 == receitasPossiveis[id].Ingredientes02)
+            {
+                ingrediente2Achado = true;
+                Debug.Log("Achei o 2");
+            }
+            
+            if (ingrediente1Achado == false && ingrediente2Achado == true || ingrediente1Achado == true && ingrediente2Achado == false)
+            {
+                ingrediente1Achado = false;
+                ingrediente2Achado = false;
+            }
+
+            id++;
+
+            if (ingrediente1Achado == true && ingrediente2Achado == true)
+            {
+                id--;
+            }
         }
-        Debug.Log("GOROROBA MANÉ");
-        return receitasPossiveis[0];
+        Debug.Log("Oia só q receita bunita");
+        Debug.Log(receitasPossiveis[id]);
+        return receitasPossiveis[id];
+
     }
 }
-//Debug.Log("VOU RETORNA A RECEITA EM");
-//return receitasPossiveis[i];
+
