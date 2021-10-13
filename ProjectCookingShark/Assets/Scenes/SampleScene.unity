@@ -277,6 +277,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1573977562}
     m_Modifications:
+    - target: {fileID: 2980469989264295124, guid: acdd5cf130b65824482fe8ab25142e0e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2980469989264295127, guid: acdd5cf130b65824482fe8ab25142e0e, type: 3}
       propertyPath: m_Name
       value: "PimentaPac\xEDfica"
@@ -1019,6 +1023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Anem\xF4naPicada"
       objectReference: {fileID: 0}
+    - target: {fileID: 2980469989264295130, guid: 3f83ee67a3cb71d419d9ad62de93ed56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
     - target: {fileID: 2980469989264295130, guid: 3f83ee67a3cb71d419d9ad62de93ed56, type: 3}
       propertyPath: m_SortingOrder
       value: 2
