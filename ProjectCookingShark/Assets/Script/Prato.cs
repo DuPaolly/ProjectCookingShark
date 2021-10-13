@@ -58,8 +58,9 @@ public class Prato : Receita
         {
             if (ingredientes01 != null)
             {
-                if(ingredientes01 == ingredienteParaAdicionar)
+                if (ingredientes01.NomeDoIngrediente.Equals(ingredienteParaAdicionar.NomeDoIngrediente))
                 {
+                    Debug.Log("tao iguais mano");
                     return false;
                 }
                 else
@@ -70,7 +71,7 @@ public class Prato : Receita
             }
             else
             {
-                if (ingredientes02 == ingredienteParaAdicionar)
+                if (ingredientes02.NomeDoIngrediente.Equals(ingredienteParaAdicionar.NomeDoIngrediente  ))
                 {
                     return false;
                 }

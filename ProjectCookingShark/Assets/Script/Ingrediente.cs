@@ -7,8 +7,8 @@ public class Ingrediente : Sabores
 {
     private Prato pratoEmProducao;
 
-    [SerializeField] string nome;
-    public string Nome => nome;
+    [SerializeField] string nomeDoIngrediente;
+    public string NomeDoIngrediente => nomeDoIngrediente;
     [SerializeField] Sabores.SaboresExistentes sabor;
     public Sabores.SaboresExistentes Sabor => sabor;
 
