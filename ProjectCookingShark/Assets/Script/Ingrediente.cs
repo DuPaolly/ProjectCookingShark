@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ingrediente : Sabores
 {
+
+    object obj;
+    obj = Collider2D;
+
     [SerializeField] string nome;
     public string Nome => nome;
     [SerializeField] Sabores.SaboresExistentes sabor;
@@ -15,12 +20,12 @@ public class Ingrediente : Sabores
 
     private void Awake()
     {
-        _originalPosition = transform.position;
+        ObjectStart();
     }
 
     private void OnMouseDrag()
     {
-        transform.position = GetMousePos();
+        MouseDragUpdate();
     }
 
     private void OnMouseDown()
@@ -30,12 +35,7 @@ public class Ingrediente : Sabores
 
     private void OnMouseUp()
     {
-        //if ( == )
-        //{
-        //    Debug.Log("deu");
-        //}
-
-        transform.position = _originalPosition;
+        MouseDropObject();
     }
 
     Vector3 GetMousePos()
@@ -43,6 +43,19 @@ public class Ingrediente : Sabores
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         return mousePos;
+    }
+    private void MouseDropObject()
+    {
+        transform.position = _originalPosition;
+    }
+    private void MouseDragUpdate()
+    {
+        transform.position = GetMousePos();
+    }
+
+    private void ObjectStart()
+    {
+        _originalPosition = transform.position;
     }
 
 
