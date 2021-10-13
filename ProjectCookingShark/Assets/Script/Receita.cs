@@ -8,16 +8,11 @@ public class Receita : MonoBehaviour
     [SerializeField] string nomePrato;
     public string NomePrato => nomePrato;
 
-    [SerializeField] Ingrediente ingredientes01;
-    public Ingrediente Ingredientes01 => ingredientes01;
+    [SerializeField] public Ingrediente ingredientes01;
+    //public Ingrediente ingredientes01 => ingredientes01;
 
-    [SerializeField] Ingrediente ingredientes02;
-    public Ingrediente Ingredientes02 => ingredientes02;
-
-    ////public override bool Equals(object other)
-    ////{
-    ////    return base.Equals(other);
-    ////}
+    [SerializeField] public Ingrediente ingredientes02;
+    //public Ingrediente ingredientes02 => ingredientes02;
 
     private void Update()
     {
@@ -26,10 +21,11 @@ public class Receita : MonoBehaviour
 
     private void TirarIngredienteDuplicado()
     {
-        if (ingredientes01 == ingredientes02)
-        {
-            ingredientes02 = null;
-            //    Debug.Log("vamo apagar esse bagulho?");
+        if(ingredientes01 != null) { 
+            if (ingredientes01.Equals(ingredientes02))
+            {
+                ingredientes02 = null;
+            }
         }
     }
 

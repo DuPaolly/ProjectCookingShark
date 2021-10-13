@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class Ingrediente : Sabores
 {
-
-    object obj;
-    obj = Collider2D;
+    private Prato pratoEmProducao;
 
     [SerializeField] string nome;
     public string Nome => nome;
@@ -38,6 +36,26 @@ public class Ingrediente : Sabores
         MouseDropObject();
     }
 
+    private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
+    {
+        Prato pratoEncontrado = areaEmQueEncostou.GetComponent<Prato>();
+
+        if(pratoEncontrado != null)
+        {
+            pratoEmProducao = pratoEncontrado;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D areaEmQueSaiu)
+    {
+        Prato pratoQuePerdeu = areaEmQueSaiu.GetComponent<Prato>();
+
+        if(pratoQuePerdeu != null)
+        {
+            pratoEmProducao = null;
+        }
+    }
+
     Vector3 GetMousePos()
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,8 +64,28 @@ public class Ingrediente : Sabores
     }
     private void MouseDropObject()
     {
+        if(pratoEmProducao != null)
+        {
+            if (!pratoEmProducao.PodeReceberIngrediente(this))
+            {
+                VoltaAPosiçãoInicial();
+            }
+            else
+            {
+                AdicionarOIngredienteAoPrato();            
+            }
+        }
+        else
+        {
+            VoltaAPosiçãoInicial();
+        }
+    }
+
+    private void VoltaAPosiçãoInicial()
+    {
         transform.position = _originalPosition;
     }
+
     private void MouseDragUpdate()
     {
         transform.position = GetMousePos();
@@ -58,5 +96,9 @@ public class Ingrediente : Sabores
         _originalPosition = transform.position;
     }
 
-
+    void AdicionarOIngredienteAoPrato()
+    {
+        transform.position = pratoEmProducao.transform.position;
+        transform.SetParent(pratoEmProducao.transform);
+    }
 }

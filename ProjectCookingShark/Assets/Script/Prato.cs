@@ -28,12 +28,12 @@ public class Prato : Receita
     {
         if (premiumIngredientes == IngredientePremium.PrimeiroIngredientePremium)
         {
-            saborPremiumIngrediente = Ingredientes01;
+            saborPremiumIngrediente = ingredientes01;
             //Debug.Log("estao iguais manolos");
         }
         else if (premiumIngredientes == IngredientePremium.SegundoIngredientePremium)
         {
-            saborPremiumIngrediente = Ingredientes02;
+            saborPremiumIngrediente = ingredientes02;
             //Debug.Log("estao iguais manolos, mas ao segundo");
         }
         else
@@ -41,5 +41,59 @@ public class Prato : Receita
             //Debug.Log("Tem ninguem aqui nao");
             saborPremiumIngrediente = null;
         }
+    }
+    
+    public bool PodeReceberIngrediente(Ingrediente ingredienteParaAdicionar)
+    {
+        if(ingredientes01 == null && ingredientes02 == null)
+        {
+            ingredientes01 = ingredienteParaAdicionar;
+            return true;
+        }
+        else if(ingredientes01 != null && ingredientes02 != null)
+        {
+            return false;
+        }
+        else
+        {
+            if (ingredientes01 != null)
+            {
+                if(ingredientes01 == ingredienteParaAdicionar)
+                {
+                    return false;
+                }
+                else
+                {
+                    ingredientes02 = ingredienteParaAdicionar;
+                    return true;
+                }
+            }
+            else
+            {
+                if (ingredientes02 == ingredienteParaAdicionar)
+                {
+                    return false;
+                }
+                else
+                {
+                    ingredientes01 = ingredienteParaAdicionar;
+                    return true;
+                }
+            }
+        }
+    }
+
+
+    public void DescartaIngrediente()
+    {
+        if (ingredientes01 != null)
+        {
+            Destroy(ingredientes01.gameObject);
+        }
+        if (ingredientes02 != null)
+        {
+            Destroy(ingredientes02.gameObject);
+        }
+        premiumIngredientes = IngredientePremium.SemIngredientePremium;
     }
 }

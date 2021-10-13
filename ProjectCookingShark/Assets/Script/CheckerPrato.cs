@@ -24,15 +24,15 @@ public class CheckerPrato : MonoBehaviour
                 return receitasPossiveis[0];
             }
 
-            if (pratoFeito.Ingredientes01 == receitasPossiveis[id].Ingredientes01 ||
-                pratoFeito.Ingredientes01 == receitasPossiveis[id].Ingredientes02)
+            if (pratoFeito.ingredientes01 == receitasPossiveis[id].ingredientes01 ||
+                pratoFeito.ingredientes01 == receitasPossiveis[id].ingredientes02)
             {
                 ingrediente1Achado = true;
                 Debug.Log("Achei o 1");
             }
 
-            if(pratoFeito.Ingredientes02 == receitasPossiveis[id].Ingredientes01 ||
-                pratoFeito.Ingredientes02 == receitasPossiveis[id].Ingredientes02)
+            if(pratoFeito.ingredientes02 == receitasPossiveis[id].ingredientes01 ||
+                pratoFeito.ingredientes02 == receitasPossiveis[id].ingredientes02)
             {
                 ingrediente2Achado = true;
                 Debug.Log("Achei o 2");
