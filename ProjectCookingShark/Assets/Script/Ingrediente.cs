@@ -30,10 +30,10 @@ public class Ingrediente : Sabores
 
     private void OnMouseUp()
     {
-        if ( == )
-        {
-            Debug.Log("deu");
-        }
+        //if ( == )
+        //{
+        //    Debug.Log("deu");
+        //}
 
         transform.position = _originalPosition;
     }
