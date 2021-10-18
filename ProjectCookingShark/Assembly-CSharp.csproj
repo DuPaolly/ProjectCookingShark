@@ -57,13 +57,14 @@
     <Compile Include="Assets\Script\CheckerPrato.cs" />
     <Compile Include="Assets\Script\Prato.cs" />
     <Compile Include="Assets\Script\TestesEDebugs.cs" />
+    <Compile Include="Assets\Script\CortarObjetos.cs" />
     <Compile Include="Assets\Script\TestesUpdate.cs" />
     <Compile Include="Assets\Script\ListaDeReceitas.cs" />
     <Compile Include="Assets\Script\Sabores.cs" />
     <Compile Include="Assets\Script\Manager.cs" />
     <Compile Include="Assets\Script\Pedido.cs" />
     <Compile Include="Assets\Script\Ingrediente.cs" />
-    <Compile Include="Assets\Script\CortarObjetos.cs" />
+    <Compile Include="Assets\Script\MudarCena.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
