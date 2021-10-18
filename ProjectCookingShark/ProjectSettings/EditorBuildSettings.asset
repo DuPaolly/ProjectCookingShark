@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TesteButton.unity
+    guid: 6cf2675b84929764cb771e8233caae0f
+  - enabled: 1
+    path: Assets/Scenes/DudaTestes.unity
+    guid: 1dc37b13c7da32b4698213aff86464e8
   m_configObjects: {}

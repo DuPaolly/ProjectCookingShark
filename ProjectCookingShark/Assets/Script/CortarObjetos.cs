@@ -7,7 +7,12 @@ public class CortarObjetos : MonoBehaviour
 {
     int corte = 0;
     public Button faca;
-    
+
+    private void OnLevelWasLoaded(int level)
+    {
+        faca.enabled = true;
+    }
+
     public void Faca()
     {
         //faca.enabled = true;

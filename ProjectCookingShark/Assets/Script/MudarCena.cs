@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MudarCena : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ChamarCenaCortarObjeto()
     {
-        
+        //faca.enabled = true;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("DudaTestes");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChamarCenaInicial()
     {
-        
+        UnityEngine.SceneManagement.SceneManager.LoadScene("TesteButton");
     }
 }
