@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7963430365059382138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7802454526653344521}
+  m_Layer: 0
+  m_Name: Prato E Receita
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7802454526653344521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963430365059382138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.902627, y: 10.726633, z: -1.444769}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5686853042520842586}
+  - {fileID: 2209729241702241826}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &886879210000676024
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7802454526653344521}
+    m_Modifications:
+    - target: {fileID: 1125649505713754351, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_Name
+      value: ReceitasGerais
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.114737
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.228302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.98688114
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200958037184956412, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+      propertyPath: pratoFeito
+      value: 
+      objectReference: {fileID: 1545388941849106782}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+--- !u!4 &2209729241702241826 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1361313012525327002, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+  m_PrefabInstance: {fileID: 886879210000676024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1352641595181609796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2200958037184956412, guid: b176481a07ea9de449dab4dc306a1124, type: 3}
+  m_PrefabInstance: {fileID: 886879210000676024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25dee910dcc4fe84c8a504ab70fca0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6701218853534490795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7802454526653344521}
+    m_Modifications:
+    - target: {fileID: 762661039530037113, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_Name
+      value: PratoEmPreparo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.3330116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.4861307
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.444769
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709713479334289286, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1352641595181609796}
+    - target: {fileID: 2709713479334289286, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PodeChecarOPrato
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709713479334289286, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CheckerPrato, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709713479334289286, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+--- !u!4 &5686853042520842586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1302738470852035057, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+  m_PrefabInstance: {fileID: 6701218853534490795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1545388941849106782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5300121056003586549, guid: d3e14a4a241ede64494cd3c36522e7d8, type: 3}
+  m_PrefabInstance: {fileID: 6701218853534490795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39380ae53cfa640419a1ffee2e731ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

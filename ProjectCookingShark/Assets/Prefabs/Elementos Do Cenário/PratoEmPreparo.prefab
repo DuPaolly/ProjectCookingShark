@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6375638901942577265}
   - component: {fileID: 5952152453465218917}
   m_Layer: 0
-  m_Name: PratoEmPreparo 1
+  m_Name: PratoEmPreparo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
