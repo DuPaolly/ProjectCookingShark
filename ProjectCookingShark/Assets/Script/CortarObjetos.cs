@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CortarObjetos : MonoBehaviour
 {
     int corte = 0;
-
+    public Button faca;
+    
     public void Faca()
     {
-        if (corte <=5)
+        //faca.enabled = true;
+        if (corte <5)
         {
             corte++;
-            Debug.Log("Mais 1");
+            Debug.Log("Mais 1 " + corte);
         }
         else
         {
+            corte = 0;
+            faca.enabled = false;
             Debug.Log("Ja fooiii");
         }
     }
