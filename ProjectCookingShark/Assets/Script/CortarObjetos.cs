@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CortarObjetos : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int corte = 0;
+
+    public void Faca()
     {
-        
+        if (corte <=5)
+        {
+            corte++;
+            Debug.Log("Mais 1");
+        }
+        else
+        {
+            Debug.Log("Ja fooiii");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
