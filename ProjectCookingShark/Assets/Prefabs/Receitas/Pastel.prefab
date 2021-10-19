@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomePrato: Pastel
-  ingredientes01: {fileID: 2980469989264295125, guid: d8fbbe29946a0844a97325ceca101a88, type: 3}
+  ingredientes01: {fileID: 961370369996298952, guid: d8fbbe29946a0844a97325ceca101a88, type: 3}
   ingredientes02: {fileID: 2980469989264295125, guid: dba4f8f1a7528f3409cf8881a1d41126, type: 3}

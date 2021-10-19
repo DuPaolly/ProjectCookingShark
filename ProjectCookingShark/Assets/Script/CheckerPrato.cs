@@ -43,10 +43,7 @@ public class CheckerPrato : MonoBehaviour
                 return receitasPossiveis[0];
             }
 
-            //Debug.Log(id);
-
-            //Debug.Log(pratoFeito.ingredientes01.NomeDoIngrediente);
-            //Debug.Log(pratoFeito.ingredientes02.NomeDoIngrediente);
+            Debug.Log(id);
 
             if (pratoFeito.ingredientes01.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes01.NomeDoIngrediente) ||
                 pratoFeito.ingredientes01.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes02.NomeDoIngrediente))
