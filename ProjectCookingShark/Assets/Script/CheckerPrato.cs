@@ -7,9 +7,9 @@ public class CheckerPrato : MonoBehaviour
     [SerializeField] Prato pratoFeito;
     [SerializeField] Receita[] receitasPossiveis;
 
-    bool ingrediente1Achado = false;
-    bool ingrediente2Achado = false;
-    int  id = 0;
+    public bool ingrediente1Achado = false;
+    public bool ingrediente2Achado = false;
+    public int  id = 0;
     private void Update()
     {
         //CheckPrato();
