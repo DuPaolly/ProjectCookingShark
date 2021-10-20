@@ -184,6 +184,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7788700717145071577, guid: dd29d154c6f8a244684db62fc9a1ac8d, type: 3}
+      propertyPath: receita
+      value: 
+      objectReference: {fileID: 6088852833507438522}
+    - target: {fileID: 7788700717145071577, guid: dd29d154c6f8a244684db62fc9a1ac8d, type: 3}
+      propertyPath: inventarioDeReceita
+      value: 
+      objectReference: {fileID: 6088852833507438522}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd29d154c6f8a244684db62fc9a1ac8d, type: 3}
 --- !u!4 &787442024069160256 stripped

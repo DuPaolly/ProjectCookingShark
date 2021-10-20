@@ -11,13 +11,14 @@ public class Prato : Receita
     [SerializeField] IngredientePremium premiumIngredientes;
     public IngredientePremium PremiumIngredientes => premiumIngredientes;
 
+    [SerializeField] CheckerPrato inventarioDeReceita;
+
     public enum IngredientePremium
     {
         SemIngredientePremium,
         PrimeiroIngredientePremium,
         SegundoIngredientePremium
     }
-
 
     private void FixedUpdate()
     {
@@ -84,16 +85,20 @@ public class Prato : Receita
         }
     }
 
-
     public void DescartaIngrediente()
     {
+        inventarioDeReceita.id = 0;
         if (ingredientes01 != null)
         {
             Destroy(ingredientes01.gameObject);
+            ingredientes01 = null;
+            inventarioDeReceita.ingrediente1Achado = false;
         }
         if (ingredientes02 != null)
         {
             Destroy(ingredientes02.gameObject);
+            ingredientes02 = null;
+            inventarioDeReceita.ingrediente2Achado = false;
         }
         premiumIngredientes = IngredientePremium.SemIngredientePremium;
     }
