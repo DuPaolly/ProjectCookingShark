@@ -57,7 +57,7 @@
     <Compile Include="Assets\Script\CheckerPrato.cs" />
     <Compile Include="Assets\Script\Prato.cs" />
     <Compile Include="Assets\Script\TestesEDebugs.cs" />
-    <Compile Include="Assets\Script\CortarObjetos.cs" />
+    <Compile Include="Assets\Script\MiniGameFaca.cs" />
     <Compile Include="Assets\Script\TestesUpdate.cs" />
     <Compile Include="Assets\Script\ListaDeReceitas.cs" />
     <Compile Include="Assets\Script\Sabores.cs" />
