@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckerPrato : MonoBehaviour
 {
-    //[SerializeField] Prato pratoFeito;
+    [SerializeField] Prato pratoFeito;
     [SerializeField] Receita[] receitasPossiveis;
 
     bool ingrediente1Achado = false;
@@ -24,15 +24,15 @@ public class CheckerPrato : MonoBehaviour
                 return receitasPossiveis[0];
             }
 
-            if (pratoFeito.ingredientes01 == receitasPossiveis[id].ingredientes01 ||
-                pratoFeito.ingredientes01 == receitasPossiveis[id].ingredientes02)
+            if (pratoFeito.ingredientes01.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes01.NomeDoIngrediente) ||
+                pratoFeito.ingredientes01.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes02.NomeDoIngrediente))
             {
                 ingrediente1Achado = true;
                 Debug.Log("Achei o 1");
             }
 
-            if(pratoFeito.ingredientes02 == receitasPossiveis[id].ingredientes01 ||
-                pratoFeito.ingredientes02 == receitasPossiveis[id].ingredientes02)
+            if(pratoFeito.ingredientes02.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes01.NomeDoIngrediente) ||
+                pratoFeito.ingredientes02.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes02.NomeDoIngrediente))
             {
                 ingrediente2Achado = true;
                 Debug.Log("Achei o 2");
@@ -55,6 +55,19 @@ public class CheckerPrato : MonoBehaviour
         Debug.Log("Oia só q receita bunita");
         Debug.Log(receitasPossiveis[id]);
         return receitasPossiveis[id];
+
+    }
+
+    public void PodeVerificarOPrato()
+    {
+        if(ingrediente1Achado != false || ingrediente2Achado != false)
+        {
+            Debug.Log("Você não pode fazer isso!");
+        }
+        else
+        {
+            CheckPrato(pratoFeito);
+        }
 
     }
 }
