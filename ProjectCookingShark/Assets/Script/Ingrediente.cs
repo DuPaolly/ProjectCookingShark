@@ -12,6 +12,8 @@ public class Ingrediente : Sabores
     [SerializeField] Sabores.SaboresExistentes sabor;
     public Sabores.SaboresExistentes Sabor => sabor;
 
+    [SerializeField] public MiniGameManager.TipoMiniGame minigame;
+
     private Vector2 _offset, _originalPosition;
 
     private bool _dragging;
@@ -72,7 +74,9 @@ public class Ingrediente : Sabores
             }
             else
             {
-                AdicionarOIngredienteAoPrato();            
+                AdicionarOIngredienteAoPrato();
+                MiniGameManager.IniciaMiniGame(minigame);
+                //Start Minigame
             }
         }
         else
