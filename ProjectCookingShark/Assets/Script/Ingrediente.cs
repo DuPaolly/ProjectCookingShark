@@ -14,9 +14,15 @@ public class Ingrediente : Sabores
 
     [SerializeField] public MiniGameManager.TipoMiniGame minigame;
 
-    private Vector2 _offset, _originalPosition;
+    int smoothVelocidade = 20;
+
+    private bool podeVoltar;
+
+    private Vector3 _originalPosition;
 
     private bool _dragging;
+
+    private Vector2 offset, _posicaoAtual;
 
     private void Awake()
     {
@@ -31,6 +37,11 @@ public class Ingrediente : Sabores
     private void OnMouseDown()
     {
         
+    }
+
+    private void Update()
+    {
+        VolteParaPosicao();
     }
 
     private void OnMouseUp()
@@ -70,7 +81,7 @@ public class Ingrediente : Sabores
         {
             if (!pratoEmProducao.PodeReceberIngrediente(this))
             {
-                VoltaAPosiçãoInicial();
+                podeVoltar = PodeVoltarAPosiçãoInicial();
             }
             else
             {
@@ -81,13 +92,40 @@ public class Ingrediente : Sabores
         }
         else
         {
-            VoltaAPosiçãoInicial();
+           podeVoltar = PodeVoltarAPosiçãoInicial();
         }
     }
 
-    private void VoltaAPosiçãoInicial()
+    private void VolteParaPosicao()
     {
-        transform.position = _originalPosition;
+        if (podeVoltar)
+        {
+            _posicaoAtual = transform.position;
+
+            _posicaoAtual = Vector3.Lerp(
+                transform.position,
+                _originalPosition,
+                smoothVelocidade * Time.deltaTime);
+
+            transform.position = _posicaoAtual;
+
+        }
+        else if(transform.position == _originalPosition)
+        {
+            podeVoltar = JaChegouNoDestino();
+        }
+        
+    }
+
+    private bool PodeVoltarAPosiçãoInicial()
+    {
+        return true;
+        //transform.position = _originalPosition;
+    }
+
+    private bool JaChegouNoDestino()
+    {
+        return false;
     }
 
     private void MouseDragUpdate()
