@@ -99,7 +99,6 @@ MonoBehaviour:
   nomeDoIngrediente: Alga Ressecada
   sabor: 0
   minigame: 0
-  smoothVelocidade: 20
 --- !u!61 &2980469989264295124
 BoxCollider2D:
   m_ObjectHideFlags: 0

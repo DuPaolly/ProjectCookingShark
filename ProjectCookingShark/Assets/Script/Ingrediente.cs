@@ -39,7 +39,7 @@ public class Ingrediente : Sabores
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         VolteParaPosicao();
     }
@@ -88,6 +88,7 @@ public class Ingrediente : Sabores
                 AdicionarOIngredienteAoPrato();
                 MiniGameManager.IniciaMiniGame(minigame);
                 //Start Minigame
+                podeVoltar = JaChegouNoDestino();
             }
         }
         else
@@ -130,6 +131,7 @@ public class Ingrediente : Sabores
 
     private void MouseDragUpdate()
     {
+        podeVoltar = JaChegouNoDestino();
         transform.position = GetMousePos();
     }
 
