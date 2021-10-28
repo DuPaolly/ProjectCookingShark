@@ -5,12 +5,22 @@ using UnityEngine;
 public class Pedido : Sabores
 {
 
-    [SerializeField] Sabores.SaboresExistentes saborPedido01;
-    public Sabores.SaboresExistentes SaborPedido01 => saborPedido01;
+    [SerializeField] SaboresExistentes saborPedido01;
+    public SaboresExistentes SaborPedido01 => saborPedido01;
 
-    [SerializeField] Sabores.SaboresExistentes saborPedido02;
-    public Sabores.SaboresExistentes SaborPedido02 => saborPedido02;
+    [SerializeField] SaboresExistentes saborPedido02;
+    public SaboresExistentes SaborPedido02 => saborPedido02;
 
     [SerializeField] Ingrediente ingredienteProibidoPedido;
     public Ingrediente IngredienteProibidoPedido => ingredienteProibidoPedido;
+
+    [SerializeField] IngredientePremiumDoClente premiumIngredientesDoCliente;
+    public IngredientePremiumDoClente PremiumIngredienteDoCliente => premiumIngredientesDoCliente;
+
+    public enum IngredientePremiumDoClente
+    {
+        SemIngredientePremium,
+        PrimeiroIngredientePremium,
+        SegundoIngredientePremium
+    }
 }
