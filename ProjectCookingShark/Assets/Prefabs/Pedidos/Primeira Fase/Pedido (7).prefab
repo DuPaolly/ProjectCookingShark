@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saborPedido01: 1
-  saborPedido02: 1
+  saborPedido02: 4
   ingredienteProibidoPedido: {fileID: 2980469989264295125, guid: 3f83ee67a3cb71d419d9ad62de93ed56, type: 3}
   premiumIngredientesDoCliente: 1
+  saborPedido03: 5
