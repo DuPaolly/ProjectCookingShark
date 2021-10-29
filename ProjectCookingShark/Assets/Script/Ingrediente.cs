@@ -33,17 +33,14 @@ public class Ingrediente : Sabores
     {
         MouseDragUpdate();
     }
-
     private void OnMouseDown()
     {
         
     }
-
     private void FixedUpdate()
     {
         VolteParaPosicao();
     }
-
     private void OnMouseUp()
     {
         MouseDropObject();

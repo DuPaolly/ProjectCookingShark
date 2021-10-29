@@ -10,8 +10,8 @@ public class Sabores : MonoBehaviour
         Apimentado,
         Azedo,
         Doce,
-        Salgado
-        
+        Salgado,
+        nenhum
     }
 
 }

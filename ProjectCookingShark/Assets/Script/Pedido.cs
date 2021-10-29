@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,12 @@ public class Pedido : Sabores
 
     [SerializeField] IngredientePremiumDoClente premiumIngredientesDoCliente;
     public IngredientePremiumDoClente PremiumIngredienteDoCliente => premiumIngredientesDoCliente;
+
+    public SaboresExistentes saborPedido03 = Sabores.SaboresExistentes.nenhum;
+
+    private void Update()
+    {
+    }
 
     public enum IngredientePremiumDoClente
     {
