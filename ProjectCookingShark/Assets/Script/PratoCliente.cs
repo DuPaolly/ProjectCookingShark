@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PratoCliente : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Prato pratoAReceber;
+
+    Sabores.SaboresExistentes SaborPremium;
+
+    Ingrediente ingredienteProibidoDoCliente;
+
     void Start()
     {
         
@@ -15,4 +20,10 @@ public class PratoCliente : MonoBehaviour
     {
         
     }
+
+    public bool PodeReceberPrato(Prato pratoParaAdicionar)
+    {
+        return pratoParaAdicionar;
+    }
+
 }

@@ -7,6 +7,8 @@ public class Prato : Receita
 {
     private PratoCliente pratoDoCliente;
 
+    public Receita receitaAtual;
+
     private bool podeVoltar;
 
     private Vector3 _originalPosition;
@@ -123,6 +125,7 @@ public class Prato : Receita
             inventarioDeReceita.ingrediente2Achado = false;
         }
         premiumIngredientes = IngredientePremium.SemIngredientePremium;
+        receitaAtual = null;
     }
     private void ObjectStart()
     {

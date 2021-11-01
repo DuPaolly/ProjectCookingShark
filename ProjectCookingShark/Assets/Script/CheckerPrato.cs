@@ -14,6 +14,7 @@ public class CheckerPrato : MonoBehaviour
     {
         //CheckPrato();
     }
+
     public Receita CheckPrato(Prato pratoFeito)
     {
         while (ingrediente1Achado == false || ingrediente2Achado == false) 
@@ -66,7 +67,7 @@ public class CheckerPrato : MonoBehaviour
         }
         else
         {
-            CheckPrato(pratoFeito);
+            pratoFeito.receitaAtual = CheckPrato(pratoFeito);
         }
 
     }
