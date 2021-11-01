@@ -4,7 +4,16 @@ using UnityEngine;
 using System;
 
 public class Prato : Receita
-{  
+{
+    private PratoCliente pratoDoCliente;
+
+    private bool podeVoltar;
+
+    private Vector3 _originalPosition;
+
+    private Vector2 offset, _posicaoAtual;
+
+    int smoothVelocidade = 20;
 
     Ingrediente saborPremiumIngrediente;
 
@@ -19,12 +28,25 @@ public class Prato : Receita
         PrimeiroIngredientePremium,
         SegundoIngredientePremium
     }
+    private void Awake()
+    {
+        ObjectStart();
+    }
 
     private void FixedUpdate()
     {
+        VolteParaPosicao();
         ingredientePremium();
     }
-    
+    private void OnMouseDrag()
+    {
+        MouseDragUpdate();
+    }
+    private void OnMouseUp()
+    {
+        MouseDropObject();
+    }
+
     void ingredientePremium()
     {
         if (premiumIngredientes == IngredientePremium.PrimeiroIngredientePremium)
@@ -101,5 +123,71 @@ public class Prato : Receita
             inventarioDeReceita.ingrediente2Achado = false;
         }
         premiumIngredientes = IngredientePremium.SemIngredientePremium;
+    }
+    private void ObjectStart()
+    {
+        _originalPosition = transform.position;
+    }
+
+    private void MouseDropObject()
+    {
+        if (pratoDoCliente != null)
+        {
+            if (false)
+            {
+                podeVoltar = PodeVoltarAPosiçãoInicial();
+            }
+            else
+            {
+                //AdicionarOIngredienteAoPrato();
+                //Start Minigame
+                podeVoltar = JaChegouNoDestino();
+            }
+        }
+        else
+        {
+            podeVoltar = PodeVoltarAPosiçãoInicial();
+        }
+    }
+    private bool PodeVoltarAPosiçãoInicial()
+    {
+        return true;
+        //transform.position = _originalPosition;
+    }
+
+    private bool JaChegouNoDestino()
+    {
+        return false;
+    }
+    private void MouseDragUpdate()
+    {
+        podeVoltar = JaChegouNoDestino();
+        transform.position = GetMousePos();
+    }
+    Vector3 GetMousePos()
+    {
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        return mousePos;
+    }
+    private void VolteParaPosicao()
+    {
+        if (podeVoltar)
+        {
+            _posicaoAtual = transform.position;
+
+            _posicaoAtual = Vector3.Lerp(
+                transform.position,
+                _originalPosition,
+                smoothVelocidade * Time.deltaTime);
+
+            transform.position = _posicaoAtual;
+
+        }
+        else if (transform.position == _originalPosition)
+        {
+            podeVoltar = JaChegouNoDestino();
+        }
+
     }
 }

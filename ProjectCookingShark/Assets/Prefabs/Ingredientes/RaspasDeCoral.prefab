@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeDoIngrediente: Raspas de Coral
   sabor: 2
-  minigame: 1
+  minigame: 0
 --- !u!61 &327221756930273714
 BoxCollider2D:
   m_ObjectHideFlags: 0
