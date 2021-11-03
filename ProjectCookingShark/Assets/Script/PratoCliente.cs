@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PratoCliente : MonoBehaviour
 {
-    public Prato pratoAReceber;
+    public Receita pratoAReceber;
 
     Sabores.SaboresExistentes SaborPremium;
 
@@ -21,9 +21,11 @@ public class PratoCliente : MonoBehaviour
         
     }
 
-    public bool PodeReceberPrato(Prato pratoParaAdicionar)
+    public bool PodeReceberPrato(Receita pratoParaAdicionar)
     {
-        return pratoParaAdicionar;
+        pratoAReceber = pratoParaAdicionar;
+
+        return true;
     }
 
 }

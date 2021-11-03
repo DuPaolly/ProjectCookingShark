@@ -5,6 +5,7 @@ using System;
 
 public class Prato : Receita
 {
+
     private PratoCliente pratoDoCliente;
 
     public Receita receitaAtual;
@@ -46,7 +47,28 @@ public class Prato : Receita
     }
     private void OnMouseUp()
     {
+        VolteParaPosicao();
         MouseDropObject();
+    }
+
+    private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
+    {
+        PratoCliente pratoEncontrado = areaEmQueEncostou.GetComponent<PratoCliente>();
+
+        if (pratoEncontrado != null)
+        {
+            pratoDoCliente = pratoEncontrado;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D areaEmQueSaiu)
+    {
+        PratoCliente pratoQuePerdeu = areaEmQueSaiu.GetComponent<PratoCliente>();
+
+        if (pratoQuePerdeu != null)
+        {
+            pratoDoCliente = null;
+        }
     }
 
     void ingredientePremium()
@@ -132,32 +154,12 @@ public class Prato : Receita
         _originalPosition = transform.position;
     }
 
-    private void MouseDropObject()
-    {
-        if (pratoDoCliente != null)
-        {
-            if (false)
-            {
-                podeVoltar = PodeVoltarAPosiçãoInicial();
-            }
-            else
-            {
-                //AdicionarOIngredienteAoPrato();
-                //Start Minigame
-                podeVoltar = JaChegouNoDestino();
-            }
-        }
-        else
-        {
-            podeVoltar = PodeVoltarAPosiçãoInicial();
-        }
-    }
+
     private bool PodeVoltarAPosiçãoInicial()
     {
         return true;
         //transform.position = _originalPosition;
     }
-
     private bool JaChegouNoDestino()
     {
         return false;
@@ -175,8 +177,8 @@ public class Prato : Receita
     }
     private void VolteParaPosicao()
     {
-        if (podeVoltar)
-        {
+        //if (podeVoltar)
+        //{
             _posicaoAtual = transform.position;
 
             _posicaoAtual = Vector3.Lerp(
@@ -186,11 +188,28 @@ public class Prato : Receita
 
             transform.position = _posicaoAtual;
 
-        }
-        else if (transform.position == _originalPosition)
-        {
-            podeVoltar = JaChegouNoDestino();
-        }
+        //}
+        //else if (transform.position == _originalPosition)
+        //{
+        //    podeVoltar = JaChegouNoDestino();
+        //}
 
     }
+
+    //void AdicionarAReceitaAoPratoDoCliente()
+    //{
+    //    transform.SetParent(pratoDoCliente.transform);
+    //}
+
+    private void MouseDropObject()
+    {
+        if (pratoDoCliente != null && receitaAtual != null)
+        {
+            pratoDoCliente.pratoAReceber = receitaAtual;
+            DescartaIngrediente();
+
+            podeVoltar = PodeVoltarAPosiçãoInicial();               
+        }
+    }
+
 }
