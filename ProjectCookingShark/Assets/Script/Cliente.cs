@@ -43,7 +43,7 @@ public class Cliente : MonoBehaviour
             }
             else if (ingredientePremium == Frigideira.IngredientePremium.SegundoIngredientePremium)
             {
-                saborPremiumIngrediente = pratoRecebido.ingredientes01;
+                saborPremiumIngrediente = pratoRecebido.ingredientes02;
             }
             else if (ingredientePremium == Frigideira.IngredientePremium.SemIngredientePremium)
             {
@@ -54,22 +54,28 @@ public class Cliente : MonoBehaviour
 
     public void Pontuacao()
     {
+
         if (pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente != pratoRecebido.ingredientes01.NomeDoIngrediente &&
            pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente != pratoRecebido.ingredientes02.NomeDoIngrediente)
         {
-            Debug.Log(pontuacao);
+            Debug.Log(pratoRecebido.NomePrato);
 
-            if (pedidoDoCliente != null)
+            if (pratoRecebido != null)
             {
-                if(primeiroIngrediente != false) { 
-                    if (pratoRecebido.ingredientes01.Sabor == pedidoDoCliente.SaborPedido01)
+                Debug.Log(pontuacao);
+
+                if (primeiroIngrediente == false)
+                {
+                    Debug.Log(pontuacao);
+
+                    if (pratoRecebido.ingredientes01.Sabor.Equals(pedidoDoCliente.SaborPedido01))
                     {
                         pontuacao += 100;
                         primeiroIngrediente = true;
                         Debug.Log(pontuacao);
 
                     }
-                    else if (pratoRecebido.ingredientes02.Sabor == pedidoDoCliente.SaborPedido01)
+                    else if (pratoRecebido.ingredientes02.Sabor.Equals(pedidoDoCliente.SaborPedido01))
                     {
                         pontuacao += 100;
                         primeiroIngrediente = true;
@@ -77,16 +83,16 @@ public class Cliente : MonoBehaviour
 
                     }
                 }
-                if (segundoIngrediente != false)
+                if (segundoIngrediente == false)
                 {
-                    if (pratoRecebido.ingredientes01.Sabor == pedidoDoCliente.SaborPedido02)
+                    if (pratoRecebido.ingredientes01.Sabor.Equals(pedidoDoCliente.SaborPedido02))
                     {
                         pontuacao += 100;
                         segundoIngrediente = true;
                         Debug.Log(pontuacao);
 
                     }
-                    else if (pratoRecebido.ingredientes02.Sabor == pedidoDoCliente.SaborPedido02)
+                    else if (pratoRecebido.ingredientes02.Sabor.Equals(pedidoDoCliente.SaborPedido02))
                     {
                         pontuacao += 100;
                         segundoIngrediente = true;
@@ -94,16 +100,19 @@ public class Cliente : MonoBehaviour
 
                     }
                 }
-                if (terceiroIngrediente != false && saborPremiumIngrediente != null)
+                if (terceiroIngrediente == false && saborPremiumIngrediente != null)
                 {
-                    if(saborPremiumIngrediente.Sabor == pedidoDoCliente.saborPedido03)
+                    Debug.Log(saborPremiumIngrediente.Sabor);
+                    Debug.Log(pedidoDoCliente.saborPedido03);
+
+                    if (saborPremiumIngrediente.Sabor.Equals(pedidoDoCliente.saborPedido03))
                     {
                         pontuacao += 100;
                         terceiroIngrediente = true;
                         Debug.Log(pontuacao);
 
                     }
-                    else if(saborPremiumIngrediente.Sabor == pedidoDoCliente.saborPedido03)
+                    else if (saborPremiumIngrediente.Sabor.Equals(pedidoDoCliente.saborPedido03))
                     {
                         pontuacao += 100;
                         terceiroIngrediente = true;
@@ -112,7 +121,7 @@ public class Cliente : MonoBehaviour
                     }
                 }
             }
-        
+
         }
     }
 
