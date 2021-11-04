@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd092872f07ce34bb3b537fa8c3bb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pratoAReceber: {fileID: 0}
+  pratoServido: {fileID: 0}
+  saborPremiumIngrediente: {fileID: 0}
+  premiumIngrediente: 0
 --- !u!61 &638268367559330935
 BoxCollider2D:
   m_ObjectHideFlags: 0

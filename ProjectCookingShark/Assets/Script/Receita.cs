@@ -14,19 +14,20 @@ public class Receita : MonoBehaviour
     [SerializeField] public Ingrediente ingredientes02;
     //public Ingrediente ingredientes02 => ingredientes02;
 
+
     private void Update()
     {
-        TirarIngredienteDuplicado();
+        //TirarIngredienteDuplicado();
     }
 
-    private void TirarIngredienteDuplicado()
-    {
-        if(ingredientes01 != null) { 
-            if (ingredientes01.Equals(ingredientes02))
-            {
-                ingredientes02 = null;
-            }
-        }
-    }
+    //private void TirarIngredienteDuplicado()
+    //{
+    //    if(ingredientes01 != null) { 
+    //        if (ingredientes01.Equals(ingredientes02))
+    //        {
+    //            ingredientes02 = null;
+    //        }
+    //    }
+    //}
 
 }

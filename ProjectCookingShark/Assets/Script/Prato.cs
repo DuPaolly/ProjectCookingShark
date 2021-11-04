@@ -5,6 +5,13 @@ using System;
 
 public class Prato : Receita
 {
+    public Ingrediente saborPremiumIngrediente = null;
+
+    IngredientePremium premiumIngredientes = IngredientePremium.SemIngredientePremium;
+
+    [SerializeField] private Receita Gororoba;
+
+    private Lixeira lixeira;
 
     private PratoCliente pratoDoCliente;
 
@@ -18,10 +25,6 @@ public class Prato : Receita
 
     int smoothVelocidade = 20;
 
-    Ingrediente saborPremiumIngrediente;
-
-    [SerializeField] IngredientePremium premiumIngredientes;
-    public IngredientePremium PremiumIngredientes => premiumIngredientes;
 
     [SerializeField] CheckerPrato inventarioDeReceita;
 
@@ -39,7 +42,6 @@ public class Prato : Receita
     private void FixedUpdate()
     {
         VolteParaPosicao();
-        ingredientePremium();
     }
     private void OnMouseDrag()
     {
@@ -53,6 +55,13 @@ public class Prato : Receita
 
     private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
     {
+        Lixeira lixeiraEncontrada = areaEmQueEncostou.GetComponent<Lixeira>();
+
+        if(lixeiraEncontrada != null)
+        {
+            lixeira = lixeiraEncontrada;
+        }
+
         PratoCliente pratoEncontrado = areaEmQueEncostou.GetComponent<PratoCliente>();
 
         if (pratoEncontrado != null)
@@ -63,6 +72,13 @@ public class Prato : Receita
 
     private void OnTriggerExit2D(Collider2D areaEmQueSaiu)
     {
+        Lixeira lixeiraEncontrada = areaEmQueSaiu.GetComponent<Lixeira>();
+
+        if (lixeiraEncontrada != null)
+        {
+            lixeira = null;
+        }
+
         PratoCliente pratoQuePerdeu = areaEmQueSaiu.GetComponent<PratoCliente>();
 
         if (pratoQuePerdeu != null)
@@ -71,69 +87,78 @@ public class Prato : Receita
         }
     }
 
-    void ingredientePremium()
-    {
-        if (premiumIngredientes == IngredientePremium.PrimeiroIngredientePremium)
-        {
-            saborPremiumIngrediente = ingredientes01;
-            //Debug.Log("estao iguais manolos");
-        }
-        else if (premiumIngredientes == IngredientePremium.SegundoIngredientePremium)
-        {
-            saborPremiumIngrediente = ingredientes02;
-            //Debug.Log("estao iguais manolos, mas ao segundo");
-        }
-        else
-        {
-            //Debug.Log("Tem ninguem aqui nao");
-            saborPremiumIngrediente = null;
-        }
-    }
     
     public bool PodeReceberIngrediente(Ingrediente ingredienteParaAdicionar)
     {
-        if(ingredientes01 == null && ingredientes02 == null)
-        {
-            ingredientes01 = ingredienteParaAdicionar;
-            return true;
-        }
-        else if(ingredientes01 != null && ingredientes02 != null)
-        {
-            return false;
-        }
-        else
-        {
-            if (ingredientes01 != null)
+       
+        if(receitaAtual == null) { 
+            if(ingredientes01 == null && ingredientes02 == null)
             {
-                if (ingredientes01.NomeDoIngrediente.Equals(ingredienteParaAdicionar.NomeDoIngrediente))
+                ingredientes01 = ingredienteParaAdicionar;
+                return true;
+            }
+            else if(ingredientes01 != null && ingredientes02 != null)
+            {
+                if(saborPremiumIngrediente == null)
                 {
-                    Debug.Log("tao iguais mano");
-                    return false;
+                    if(ingredienteParaAdicionar.NomeDoIngrediente == ingredientes01.NomeDoIngrediente)
+                    { 
+                        saborPremiumIngrediente = ingredienteParaAdicionar;
+                        premiumIngredientes = Prato.IngredientePremium.PrimeiroIngredientePremium;
+                        return true;
+                    }
+                    else if(ingredienteParaAdicionar.NomeDoIngrediente == ingredientes02.NomeDoIngrediente)
+                    {
+                        saborPremiumIngrediente = ingredienteParaAdicionar;
+                        premiumIngredientes = Prato.IngredientePremium.SegundoIngredientePremium;
+                        return true;
+                    }
                 }
-                else
-                {
-                    ingredientes02 = ingredienteParaAdicionar;
-                    return true;
-                }
+
+                return false;
+        
             }
             else
             {
-                if (ingredientes02.NomeDoIngrediente.Equals(ingredienteParaAdicionar.NomeDoIngrediente  ))
+                if (ingredientes01 != null)
                 {
-                    return false;
+                    if (ingredientes01.NomeDoIngrediente.Equals(ingredienteParaAdicionar.NomeDoIngrediente))
+                    {
+                        Debug.Log("tao iguais mano");
+                        return false;
+                    }
+                    else
+                    {
+                        ingredientes02 = ingredienteParaAdicionar;
+                        return true;
+                    }
                 }
                 else
                 {
-                    ingredientes01 = ingredienteParaAdicionar;
-                    return true;
+                    if (ingredientes02.NomeDoIngrediente.Equals(ingredienteParaAdicionar.NomeDoIngrediente  ))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        ingredientes01 = ingredienteParaAdicionar;
+                        return true;
+                    }
                 }
             }
         }
+        return false;
     }
 
     public void DescartaIngrediente()
     {
         inventarioDeReceita.id = 0;
+
+        if (saborPremiumIngrediente != null)
+        {
+            Destroy(saborPremiumIngrediente.gameObject);
+            saborPremiumIngrediente = null;
+        }
         if (ingredientes01 != null)
         {
             Destroy(ingredientes01.gameObject);
@@ -146,6 +171,7 @@ public class Prato : Receita
             ingredientes02 = null;
             inventarioDeReceita.ingrediente2Achado = false;
         }
+        
         premiumIngredientes = IngredientePremium.SemIngredientePremium;
         receitaAtual = null;
     }
@@ -177,8 +203,7 @@ public class Prato : Receita
     }
     private void VolteParaPosicao()
     {
-        //if (podeVoltar)
-        //{
+
             _posicaoAtual = transform.position;
 
             _posicaoAtual = Vector3.Lerp(
@@ -188,28 +213,24 @@ public class Prato : Receita
 
             transform.position = _posicaoAtual;
 
-        //}
-        //else if (transform.position == _originalPosition)
-        //{
-        //    podeVoltar = JaChegouNoDestino();
-        //}
-
     }
 
-    //void AdicionarAReceitaAoPratoDoCliente()
-    //{
-    //    transform.SetParent(pratoDoCliente.transform);
-    //}
 
     private void MouseDropObject()
     {
-        if (pratoDoCliente != null && receitaAtual != null)
+        if (pratoDoCliente != null && receitaAtual != null && receitaAtual.NomePrato != Gororoba.NomePrato)
         {
-            pratoDoCliente.pratoAReceber = receitaAtual;
-            DescartaIngrediente();
+            pratoDoCliente.premiumIngrediente = premiumIngredientes;
+            pratoDoCliente.pratoServido = receitaAtual;              
 
-            podeVoltar = PodeVoltarAPosiçãoInicial();               
+            podeVoltar = PodeVoltarAPosiçãoInicial();
+            DescartaIngrediente();
         }
-    }
+        else if(lixeira != null)
+        {
+            DescartaIngrediente();
+            podeVoltar = PodeVoltarAPosiçãoInicial();
+        }
+    } 
 
 }

@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class Cliente : MonoBehaviour
 {
+    int pontuacao = 0;
+    
     public int sortearNumero;
 
     [SerializeField] public ListaDePedidos listaDePedidos;
 
     public Pedido pedidoDoCliente;
+
+    public Receita pratoRecebido;
+
+    public Prato.IngredientePremium ingredientePremium;
+
+    public Ingrediente saborPremiumIngrediente;
+
+    private bool primeiroIngrediente = false;
+
+    private bool segundoIngrediente = false;
+
+    private bool terceiroIngrediente = false;
 
     void Start()
     {
@@ -16,20 +30,93 @@ public class Cliente : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        IngredientePremiumParaOCliente();
     }
 
-    //public void PedidoAtualDesteCliente()
-    //{
-    //    pedidoAtual = listaDePedidos.SortearPedidoDoCliente();
+    private void IngredientePremiumParaOCliente()
+    {
+        if (pratoRecebido != null)
+        {
+            if (ingredientePremium == Prato.IngredientePremium.PrimeiroIngredientePremium)
+            {
+                saborPremiumIngrediente = pratoRecebido.ingredientes01;
+            }
+            else if (ingredientePremium == Prato.IngredientePremium.SegundoIngredientePremium)
+            {
+                saborPremiumIngrediente = pratoRecebido.ingredientes01;
+            }
+            else if (ingredientePremium == Prato.IngredientePremium.SemIngredientePremium)
+            {
+                saborPremiumIngrediente = null;
+            }
+        }
+    }
 
-    //    Debug.Log(pedidoAtual.SaborPedido01);
-    //    Debug.Log(pedidoAtual.SaborPedido02);
-    //    Debug.Log(pedidoAtual.IngredienteProibidoPedido);
-    //    Debug.Log("Ingrediente premium: " + pedidoAtual.saborPedido03);
-    //}
+    public void Pontuacao()
+    {
+        if (pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente != pratoRecebido.ingredientes01.NomeDoIngrediente &&
+           pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente != pratoRecebido.ingredientes02.NomeDoIngrediente)
+        {
+            Debug.Log(pontuacao);
+
+            if (pedidoDoCliente != null)
+            {
+                if(primeiroIngrediente != false) { 
+                    if (pratoRecebido.ingredientes01.Sabor == pedidoDoCliente.SaborPedido01)
+                    {
+                        pontuacao += 100;
+                        primeiroIngrediente = true;
+                        Debug.Log(pontuacao);
+
+                    }
+                    else if (pratoRecebido.ingredientes02.Sabor == pedidoDoCliente.SaborPedido01)
+                    {
+                        pontuacao += 100;
+                        primeiroIngrediente = true;
+                        Debug.Log(pontuacao);
+
+                    }
+                }
+                if (segundoIngrediente != false)
+                {
+                    if (pratoRecebido.ingredientes01.Sabor == pedidoDoCliente.SaborPedido02)
+                    {
+                        pontuacao += 100;
+                        segundoIngrediente = true;
+                        Debug.Log(pontuacao);
+
+                    }
+                    else if (pratoRecebido.ingredientes02.Sabor == pedidoDoCliente.SaborPedido02)
+                    {
+                        pontuacao += 100;
+                        segundoIngrediente = true;
+                        Debug.Log(pontuacao);
+
+                    }
+                }
+                if (terceiroIngrediente != false && saborPremiumIngrediente != null)
+                {
+                    if(saborPremiumIngrediente.Sabor == pedidoDoCliente.saborPedido03)
+                    {
+                        pontuacao += 100;
+                        terceiroIngrediente = true;
+                        Debug.Log(pontuacao);
+
+                    }
+                    else if(saborPremiumIngrediente.Sabor == pedidoDoCliente.saborPedido03)
+                    {
+                        pontuacao += 100;
+                        terceiroIngrediente = true;
+                        Debug.Log(pontuacao);
+
+                    }
+                }
+            }
+        
+        }
+    }
 
     public void SortearPedidoDoCliente()
     {
