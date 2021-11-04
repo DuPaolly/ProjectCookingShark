@@ -17,17 +17,18 @@ public class Receita : MonoBehaviour
 
     private void Update()
     {
-        //TirarIngredienteDuplicado();
+        TirarIngredienteDuplicado();
     }
 
-    //private void TirarIngredienteDuplicado()
-    //{
-    //    if(ingredientes01 != null) { 
-    //        if (ingredientes01.Equals(ingredientes02))
-    //        {
-    //            ingredientes02 = null;
-    //        }
-    //    }
-    //}
+    private void TirarIngredienteDuplicado()
+    {
+        if (ingredientes01 != null)
+        {
+            if (ingredientes01.Equals(ingredientes02))
+            {
+                ingredientes02 = null;
+            }
+        }
+    }
 
 }

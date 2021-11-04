@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6851243693217534043}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08433628, y: 4.4120283, z: 0.21890658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -97,5 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saborPedido01: 3
   saborPedido02: 2
-  ingredienteProibidoPedido: {fileID: 327221756930273715, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
+  ingredienteProibidoPedido: {fileID: 5666719465753310209, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
   premiumIngredientesDoCliente: 1
+  saborPedido03: 0

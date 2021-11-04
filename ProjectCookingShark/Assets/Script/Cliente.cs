@@ -14,7 +14,7 @@ public class Cliente : MonoBehaviour
 
     public Receita pratoRecebido;
 
-    public Prato.IngredientePremium ingredientePremium;
+    public Frigideira.IngredientePremium ingredientePremium;
 
     public Ingrediente saborPremiumIngrediente;
 
@@ -26,10 +26,8 @@ public class Cliente : MonoBehaviour
 
     void Start()
     {
-        
+        SortearPedidoDoCliente();
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         IngredientePremiumParaOCliente();
@@ -39,15 +37,15 @@ public class Cliente : MonoBehaviour
     {
         if (pratoRecebido != null)
         {
-            if (ingredientePremium == Prato.IngredientePremium.PrimeiroIngredientePremium)
+            if (ingredientePremium == Frigideira.IngredientePremium.PrimeiroIngredientePremium)
             {
                 saborPremiumIngrediente = pratoRecebido.ingredientes01;
             }
-            else if (ingredientePremium == Prato.IngredientePremium.SegundoIngredientePremium)
+            else if (ingredientePremium == Frigideira.IngredientePremium.SegundoIngredientePremium)
             {
                 saborPremiumIngrediente = pratoRecebido.ingredientes01;
             }
-            else if (ingredientePremium == Prato.IngredientePremium.SemIngredientePremium)
+            else if (ingredientePremium == Frigideira.IngredientePremium.SemIngredientePremium)
             {
                 saborPremiumIngrediente = null;
             }

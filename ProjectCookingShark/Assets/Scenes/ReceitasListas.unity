@@ -1242,6 +1242,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5555327606462038284, guid: 8fc140c7342c62c458e2e751012374d0, type: 3}
+      propertyPath: ingredientes01
+      value: 
+      objectReference: {fileID: 5666719465753310209, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
     - target: {fileID: 8018133501209232780, guid: 8fc140c7342c62c458e2e751012374d0, type: 3}
       propertyPath: m_Name
       value: Pastel
@@ -1312,6 +1316,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 298531252084692043, guid: 49015f703d8dc5846bc54ef61fe7712b, type: 3}
+      propertyPath: ingredientes01
+      value: 
+      objectReference: {fileID: 5666719465753310209, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
     - target: {fileID: 544255603035960058, guid: 49015f703d8dc5846bc54ef61fe7712b, type: 3}
       propertyPath: m_Name
       value: Salada de Frutas

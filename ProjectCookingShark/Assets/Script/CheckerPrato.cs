@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckerPrato : MonoBehaviour
 {
-    [SerializeField] Prato pratoFeito;
+    [SerializeField] Frigideira pratoFeito;
     [SerializeField] Receita[] receitasPossiveis;
 
     public bool ingrediente1Achado = false;
@@ -15,7 +15,7 @@ public class CheckerPrato : MonoBehaviour
         //CheckPrato();
     }
 
-    public Receita CheckPrato(Prato pratoFeito)
+    public Receita CheckPrato(Frigideira pratoFeito)
     {
         while (ingrediente1Achado == false || ingrediente2Achado == false) 
         {

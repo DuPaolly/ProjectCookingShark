@@ -2,26 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PratoCliente : MonoBehaviour
+public class PratoCliente : Draggable
 {
     public Receita pratoServido;
 
     private Cliente cliente;
 
-    public Prato.IngredientePremium premiumIngrediente;
 
-    private Vector3 _originalPosition;
+    public Frigideira.IngredientePremium premiumIngrediente;
 
-    private Vector2 offset, _posicaoAtual;
-
-    int smoothVelocidade = 20;
-
-    private void Awake()
-    {
-        ObjectStart();
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         VolteParaPosicao();
@@ -29,23 +18,30 @@ public class PratoCliente : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
     {
-        Cliente clienteAchado = areaEmQueEncostou.GetComponent<Cliente>();
-
-        if (clienteAchado != null)
+        if (areaEmQueEncostou.CompareTag("ClienteTag"))
         {
-            cliente = clienteAchado;
+            Cliente clienteAchado = areaEmQueEncostou.GetComponent<Cliente>();
+
+            if (clienteAchado != null)
+            {
+                cliente = clienteAchado;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D areaEmQueSaiu)
     {
-        Cliente clienteAchado = areaEmQueSaiu.GetComponent<Cliente>();
-
-        if (clienteAchado != null)
+        if(areaEmQueSaiu.CompareTag("ClienteTag"))
         {
-            cliente = null;
+            Cliente clienteAchado = areaEmQueSaiu.GetComponent<Cliente>();
+
+            if (clienteAchado != null)
+            {
+                cliente = null;
+            }
         }
     }
+
 
     private void OnMouseDrag()
     {
@@ -57,50 +53,21 @@ public class PratoCliente : MonoBehaviour
         MouseDropObject();
     }
 
-    private void ObjectStart()
-    {
-        _originalPosition = transform.position;
-    }
-
-    private void MouseDragUpdate()
-    {
-        transform.position = GetMousePos();
-    }
-
-    Vector3 GetMousePos()
-    {
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        return mousePos;
-    }
-    private void VolteParaPosicao()
-    {
-
-        _posicaoAtual = transform.position;
-
-        _posicaoAtual = Vector3.Lerp(
-            transform.position,
-            _originalPosition,
-            smoothVelocidade * Time.deltaTime);
-
-        transform.position = _posicaoAtual;
-
-    }
-
     private void MouseDropObject()
     {
         if (cliente != null)
         {
             cliente.ingredientePremium = premiumIngrediente;
-            cliente.pratoRecebido = pratoServido;       
+            cliente.pratoRecebido = pratoServido;
 
             DescartaPrato();
         }
+        podeVoltar = PodeVoltarAPosiçãoInicial();
     }
 
     public void DescartaPrato()
     {
-        premiumIngrediente = Prato.IngredientePremium.SemIngredientePremium;
+        premiumIngrediente = Frigideira.IngredientePremium.SemIngredientePremium;
         pratoServido = null;
     }
 }

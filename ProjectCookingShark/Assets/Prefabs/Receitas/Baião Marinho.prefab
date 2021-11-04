@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomePrato: "Bai\xE3o Marinho"
-  ingredientes01: {fileID: 327221756930273715, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
+  ingredientes01: {fileID: 5666719465753310209, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
   ingredientes02: {fileID: 2980469989264295125, guid: 80fa1df0e72dc924e838365ff83b371b, type: 3}

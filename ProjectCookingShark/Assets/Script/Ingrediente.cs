@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ingrediente : Sabores
 {
-    private Prato pratoEmProducao;
+    private Frigideira pratoEmProducao;
 
     [SerializeField] string nomeDoIngrediente;
     public string NomeDoIngrediente => nomeDoIngrediente;
@@ -48,7 +48,7 @@ public class Ingrediente : Sabores
 
     private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
     {
-        Prato pratoEncontrado = areaEmQueEncostou.GetComponent<Prato>();
+        Frigideira pratoEncontrado = areaEmQueEncostou.GetComponent<Frigideira>();
 
         if(pratoEncontrado != null)
         {
@@ -58,7 +58,7 @@ public class Ingrediente : Sabores
 
     private void OnTriggerExit2D(Collider2D areaEmQueSaiu)
     {
-        Prato pratoQuePerdeu = areaEmQueSaiu.GetComponent<Prato>();
+        Frigideira pratoQuePerdeu = areaEmQueSaiu.GetComponent<Frigideira>();
 
         if(pratoQuePerdeu != null)
         {
@@ -118,7 +118,6 @@ public class Ingrediente : Sabores
     private bool PodeVoltarAPosiçãoInicial()
     {
         return true;
-        //transform.position = _originalPosition;
     }
 
     private bool JaChegouNoDestino()

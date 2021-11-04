@@ -56,10 +56,11 @@
     <Compile Include="Assets\Script\Receita.cs" />
     <Compile Include="Assets\Script\CheckerPrato.cs" />
     <Compile Include="Assets\Script\PratoCliente.cs" />
-    <Compile Include="Assets\Script\Prato.cs" />
+    <Compile Include="Assets\Script\Frigideira.cs" />
     <Compile Include="Assets\Script\TestesEDebugs.cs" />
     <Compile Include="Assets\Script\Cliente.cs" />
     <Compile Include="Assets\Script\MiniGames\MiniGameManager.cs" />
+    <Compile Include="Assets\Script\Lixeira.cs" />
     <Compile Include="Assets\Script\MiniGames\MiniGameFaca.cs" />
     <Compile Include="Assets\Script\TestesUpdate.cs" />
     <Compile Include="Assets\Script\ListaDeReceitas.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Assets\Script\Ingrediente.cs" />
     <Compile Include="Assets\Script\MudarCena.cs" />
     <Compile Include="Assets\Script\ListaDePedidos.cs" />
-    <Compile Include="Assets\Script\Lixeira.cs" />
+    <Compile Include="Assets\Script\Draggable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

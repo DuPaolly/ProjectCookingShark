@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240adc0020502604bacd44deb0c44336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDoIngrediente: RaspasDeCoral
+  nomeDoIngrediente: AnemonaPicada
   sabor: 2
+  minigame: 0
 --- !u!61 &2980469989264295124
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomePrato: Torta
-  ingredientes01: {fileID: 327221756930273715, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
+  ingredientes01: {fileID: 5666719465753310209, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
   ingredientes02: {fileID: 2980469989264295125, guid: acdd5cf130b65824482fe8ab25142e0e, type: 3}
