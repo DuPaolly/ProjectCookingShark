@@ -47,6 +47,7 @@ MonoBehaviour:
   nomePrato: Salada de Frutas
   ingredientes01: {fileID: 5666719465753310209, guid: 668e152eeab49a34385d140bd1d44703, type: 3}
   ingredientes02: {fileID: 2980469989264295125, guid: 598eb3b355021ba45be2f35a3f773385, type: 3}
+  spriteDaReceita: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1448274782463448136
 GameObject:
   m_ObjectHideFlags: 0

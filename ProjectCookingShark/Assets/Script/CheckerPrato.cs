@@ -22,7 +22,9 @@ public class CheckerPrato : MonoBehaviour
             if (id >= receitasPossiveis.Length)
             {
                 Debug.Log("GOROROBAAA CHECKKK");
+                AtualizaSpriteDoPrato(receitasPossiveis[0].spriteDaReceita);
                 return receitasPossiveis[0];
+
             }
 
             if (pratoFeito.ingredientes01.NomeDoIngrediente.Equals(receitasPossiveis[id].ingredientes01.NomeDoIngrediente) ||
@@ -55,8 +57,9 @@ public class CheckerPrato : MonoBehaviour
 
         Debug.Log("Oia só q receita bunita");
         Debug.Log(receitasPossiveis[id]);
+        AtualizaSpriteDoPrato(receitasPossiveis[id].spriteDaReceita);
         return receitasPossiveis[id];
-
+        
     }
 
     public void PodeVerificarOPrato()
@@ -70,6 +73,16 @@ public class CheckerPrato : MonoBehaviour
             pratoFeito.receitaAtual = CheckPrato(pratoFeito);
         }
 
+    }
+
+    //[SerializeField] Text TextoPrato;
+    //TextoPrato.text = "Arroz";
+    //TextoPrato.gameObject.SetActive(true);
+    [SerializeField] SpriteRenderer spritePrato;
+
+    void AtualizaSpriteDoPrato(Sprite spriteDoPrato)
+    {
+        spritePrato.sprite = spriteDoPrato;
     }
 }
 

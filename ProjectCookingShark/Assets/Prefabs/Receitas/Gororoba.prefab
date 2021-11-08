@@ -47,6 +47,7 @@ MonoBehaviour:
   nomePrato: Gororoba
   ingredientes01: {fileID: 2980469989264295125, guid: 598eb3b355021ba45be2f35a3f773385, type: 3}
   ingredientes02: {fileID: 2980469989264295125, guid: 598eb3b355021ba45be2f35a3f773385, type: 3}
+  spriteDaReceita: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &4239558782229396825
 GameObject:
   m_ObjectHideFlags: 0

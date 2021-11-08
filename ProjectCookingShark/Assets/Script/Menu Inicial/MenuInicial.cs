@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuInicial : MonoBehaviour
 {
     [SerializeField] GameObject MenuOptions;
-    [SerializeField] public GameObject MenuPerguntaSair;
+    [SerializeField] GameObject MenuPerguntaSair;
     private void Start()
     {
         MenuOptions.SetActive(false);
@@ -15,12 +16,15 @@ public class MenuInicial : MonoBehaviour
     public void BotaoJogar()
     {
         Debug.Log("Iniciar o Jogo");
-        SceneManager.LoadScene("Jogo");
+        //SceneManager.LoadScene("Jogo");
+        //spritePrato.sprite = SpriteReceitas[1];
     }
 
     public void BotaoHistoria()
     {
         Debug.Log("Iniciar a história do Jogo");
+        ///spritePrato.sprite = SpriteReceitas[0];
+
     }
     public void BotaoOpcoes()
     {
@@ -32,4 +36,6 @@ public class MenuInicial : MonoBehaviour
         MenuPerguntaSair.SetActive(true);
         Debug.Log("Fechar o jogo");
     }
+
+
 }
