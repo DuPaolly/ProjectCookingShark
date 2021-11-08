@@ -53,26 +53,30 @@
     <UnityVersion>2020.3.15f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Receita.cs" />
-    <Compile Include="Assets\Script\CheckerPrato.cs" />
-    <Compile Include="Assets\Script\PratoCliente.cs" />
-    <Compile Include="Assets\Script\Frigideira.cs" />
+    <Compile Include="Assets\Script\Menu Inicial\MenuInicial.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Receita.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\CheckerPrato.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\PratoCliente.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Frigideira.cs" />
     <Compile Include="Assets\Script\TestesEDebugs.cs" />
-    <Compile Include="Assets\Script\Cliente.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Cliente.cs" />
+    <Compile Include="Assets\Script\Genericas\Draggable.cs" />
     <Compile Include="Assets\Script\MiniGames\MiniGameManager.cs" />
-    <Compile Include="Assets\Script\Lixeira.cs" />
+    <Compile Include="Assets\Script\Genericas\Lixeira.cs" />
+    <Compile Include="Assets\Script\Menu Inicial\MenuSair.cs" />
     <Compile Include="Assets\Script\MiniGames\MiniGameFaca.cs" />
     <Compile Include="Assets\Script\TestesUpdate.cs" />
-    <Compile Include="Assets\Script\ListaDeReceitas.cs" />
-    <Compile Include="Assets\Script\Sabores.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\ListaDeReceitas.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Sabores.cs" />
     <Compile Include="Assets\Script\Manager.cs" />
-    <Compile Include="Assets\Script\Pedido.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Pedido.cs" />
     <Compile Include="Assets\Script\MiniGames\RaladorMiniGame.cs" />
     <Compile Include="Assets\Script\MiniGames\MiniGameBase.cs" />
-    <Compile Include="Assets\Script\Ingrediente.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Ingrediente.cs" />
     <Compile Include="Assets\Script\MudarCena.cs" />
-    <Compile Include="Assets\Script\ListaDePedidos.cs" />
-    <Compile Include="Assets\Script\Draggable.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\ListaDePedidos.cs" />
+    <Compile Include="Assets\Script\Genericas\Positions.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\ClienteManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

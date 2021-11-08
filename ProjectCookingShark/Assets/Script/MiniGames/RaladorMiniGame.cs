@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RaladorMiniGame : MiniGameBase
 {
+    
+    
     float quantidadeRalada;
     float quantidadeParaRalar = 100;
     float deltaDaRalacao;
