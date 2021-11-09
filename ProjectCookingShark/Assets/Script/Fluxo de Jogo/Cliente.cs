@@ -22,25 +22,15 @@ public class Cliente : MonoBehaviour
 
     public Ingrediente saborPremiumIngrediente;
 
-    [SerializeField] public Positions posicoesDeEntradaESaida;
+    [SerializeField] public Positions[] posicoesDeEntradaESaida;
 
-    [SerializeField] public Positions[] posicoesDosClientes;
-
-    Positions mesaEscolhida1;
-
-    Positions mesaEscolhida2;
-
-    Positions mesaEscolhida3;
-
-    Positions mesaEscolhida4;
+    [SerializeField] public Positions posicoesDosClientes;
 
     Positions localDeSaida;
 
     Cliente clienteDetectado;
 
     private Positions localDetectado;
-
-    [SerializeField] [Range (1,4)] public int prioridadeDoCliente;
 
     private bool primeiroIngrediente = false;
 
@@ -50,6 +40,8 @@ public class Cliente : MonoBehaviour
 
     private Vector3 _originalPosition;
 
+    public int saida;
+
     public bool podeIr;
 
     private Vector2 offset, _posicaoAtual;
@@ -58,8 +50,6 @@ public class Cliente : MonoBehaviour
 
     private void Awake()
     {
-        _originalPosition = posicoesDeEntradaESaida.transform.position;
-        transform.position = posicoesDeEntradaESaida.transform.position;
         sortearMesas();
     }
 
@@ -108,54 +98,9 @@ public class Cliente : MonoBehaviour
         }
     }
 
-    private void MoverPersonagemPara ()
-    {
-        if (clienteDetectado != null)
-        {
-            if (!mesaEscolhida1.statusDaMesa || mesaEscolhida1.cliente.prioridadeDoCliente < this.prioridadeDoCliente || mesaEscolhida1.cliente == this)
-        {
-            VaParaPosicao(mesaEscolhida1);
-        }
-        else if (!mesaEscolhida2.statusDaMesa || mesaEscolhida2.cliente.prioridadeDoCliente < this.prioridadeDoCliente || mesaEscolhida2.cliente == this)
-        {
-            VaParaPosicao(mesaEscolhida2);
-        }
-        else if (!mesaEscolhida3.statusDaMesa || mesaEscolhida3.cliente.prioridadeDoCliente < this.prioridadeDoCliente || mesaEscolhida3.cliente == this)
-        {
-            VaParaPosicao(mesaEscolhida3);
-        }
-        else if (!mesaEscolhida4.statusDaMesa || mesaEscolhida4.cliente.prioridadeDoCliente < this.prioridadeDoCliente || mesaEscolhida4.cliente == this)
-        {
-            VaParaPosicao(mesaEscolhida4);
-        }
-        else
-        {
-            VaParaPosicao(localDeSaida);
-        }
-        }
-        else
-        {
-            if (!mesaEscolhida1.statusDaMesa || mesaEscolhida1.cliente == this)
-            {
-                VaParaPosicao(mesaEscolhida1);
-            }
-            else if (!mesaEscolhida2.statusDaMesa || mesaEscolhida2.cliente == this)
-            {
-                VaParaPosicao(mesaEscolhida2);
-            }
-            else if (!mesaEscolhida3.statusDaMesa || mesaEscolhida3.cliente == this)
-            {
-                VaParaPosicao(mesaEscolhida3);
-            }
-            else if (!mesaEscolhida4.statusDaMesa || mesaEscolhida4.cliente == this)
-            {
-                VaParaPosicao(mesaEscolhida4);
-            }
-            else
-            {
-                VaParaPosicao(localDeSaida);
-            }
-        }
+    private void MoverPersonagemParaMesa ()
+    {        
+        VaParaPosicao(posicoesDosClientes); 
     }
 
     private void IngredientePremiumParaOCliente()
@@ -286,12 +231,12 @@ public class Cliente : MonoBehaviour
         {
             if (localDetectado != null && !localDetectado.mesa)
             {
-                sortearMesas();
-                MoverPersonagemPara();
+                //sortearMesas();
+                MoverPersonagemParaMesa();
             }
             else if (localDetectado != null && localDetectado.mesa)
             {
-                MoverPersonagemPara();
+                MoverPersonagemParaMesa();
                 if (pedidoDoCliente == null)
                 {
                     SortearPedidoDoCliente();
@@ -299,19 +244,20 @@ public class Cliente : MonoBehaviour
             }
             else
             {
-                MoverPersonagemPara();
+                MoverPersonagemParaMesa();
             }
         }
         else 
         {
-            VaParaPosicao(posicoesDeEntradaESaida);
+            VaParaPosicao(posicoesDeEntradaESaida[saida]);
             Pontuacao();
             if (localDetectado != null)
             {
-                if (localDetectado.Equals(posicoesDeEntradaESaida))
+                if (localDetectado == posicoesDeEntradaESaida[saida])
                 {
                     pratoRecebido = null;
                     pedidoDoCliente = null;
+                    sortearMesas();
                 }
             }
         }
@@ -324,27 +270,9 @@ public class Cliente : MonoBehaviour
 
     public void sortearMesas()
     {
-
-        mesaEscolhida1 = posicoesDosClientes[SortearLocal(posicoesDosClientes)];
-
-        do
-        {
-            mesaEscolhida2 = posicoesDosClientes[SortearLocal(posicoesDosClientes)];
-
-        } while (mesaEscolhida1 == mesaEscolhida2);
-
-        do
-        {
-            mesaEscolhida3 = posicoesDosClientes[SortearLocal(posicoesDosClientes)];
-
-        } while (mesaEscolhida1 == mesaEscolhida3 || mesaEscolhida2 == mesaEscolhida3);
-
-        do
-        {
-            mesaEscolhida4 = posicoesDosClientes[SortearLocal(posicoesDosClientes)];
-
-        } while (mesaEscolhida1 == mesaEscolhida4 || mesaEscolhida2 == mesaEscolhida4 || mesaEscolhida3 == mesaEscolhida4);
-
+        saida = SortearLocal(posicoesDeEntradaESaida);
+        _originalPosition = posicoesDeEntradaESaida[SortearLocal(posicoesDeEntradaESaida)].transform.position;
+        transform.position = _originalPosition;
     }
 
     public void VaParaPosicao(Positions posicao)
