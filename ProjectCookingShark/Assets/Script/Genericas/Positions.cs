@@ -10,6 +10,8 @@ public class Positions : MonoBehaviour
 
     public bool statusDaMesa;
 
+    public bool mesa;
+
     void Start()
     {
         

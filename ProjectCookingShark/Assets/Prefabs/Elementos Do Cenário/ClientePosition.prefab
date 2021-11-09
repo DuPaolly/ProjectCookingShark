@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf003d9d43730149a8050c266715c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cliente: {fileID: 0}
   statusDaMesa: 0
+  mesa: 1
 --- !u!61 &5565122411358540385
 BoxCollider2D:
   m_ObjectHideFlags: 0
