@@ -8,6 +8,8 @@ public class Cliente : MonoBehaviour
 
     int pontuacao = 0;
 
+    [SerializeField] Pontuacao pontuacaoAtual;
+
     ClienteManager manager;
 
     public int sortearNumero;
@@ -128,46 +130,40 @@ public class Cliente : MonoBehaviour
         if (pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente != pratoRecebido.ingredientes01.NomeDoIngrediente &&
            pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente != pratoRecebido.ingredientes02.NomeDoIngrediente)
         {
-            Debug.Log(pratoRecebido.NomePrato);
 
             if (pratoRecebido != null)
             {
-                Debug.Log(pontuacao);
 
                 if (primeiroIngrediente == false)
                 {
-                    Debug.Log(pontuacao);
+                    Debug.Log(pontuacaoAtual.pontuacaoDaFase);
 
                     if (pratoRecebido.ingredientes01.Sabor.Equals(pedidoDoCliente.SaborPedido01))
                     {
-                        pontuacao += 100;
+                        pontuacaoAtual.pontuacaoDaFase += 100;
                         primeiroIngrediente = true;
-                        Debug.Log(pontuacao);
-
+                        Debug.Log(pontuacaoAtual.pontuacaoDaFase);
                     }
                     else if (pratoRecebido.ingredientes02.Sabor.Equals(pedidoDoCliente.SaborPedido01))
                     {
-                        pontuacao += 100;
+                        pontuacaoAtual.pontuacaoDaFase += 100;
                         primeiroIngrediente = true;
-                        Debug.Log(pontuacao);
-
+                        Debug.Log(pontuacaoAtual.pontuacaoDaFase);
                     }
                 }
                 if (segundoIngrediente == false)
                 {
                     if (pratoRecebido.ingredientes01.Sabor.Equals(pedidoDoCliente.SaborPedido02))
                     {
-                        pontuacao += 100;
+                        pontuacaoAtual.pontuacaoDaFase += 100;
                         segundoIngrediente = true;
-                        Debug.Log(pontuacao);
-
+                        Debug.Log(pontuacaoAtual.pontuacaoDaFase);
                     }
                     else if (pratoRecebido.ingredientes02.Sabor.Equals(pedidoDoCliente.SaborPedido02))
                     {
-                        pontuacao += 100;
+                        pontuacaoAtual.pontuacaoDaFase += 100;
                         segundoIngrediente = true;
-                        Debug.Log(pontuacao);
-
+                        Debug.Log(pontuacaoAtual.pontuacaoDaFase);
                     }
                 }
                 if (terceiroIngrediente == false && saborPremiumIngrediente != null)
@@ -177,17 +173,15 @@ public class Cliente : MonoBehaviour
 
                     if (saborPremiumIngrediente.Sabor.Equals(pedidoDoCliente.saborPedido03))
                     {
-                        pontuacao += 100;
+                        pontuacaoAtual.pontuacaoDaFase += 100;
                         terceiroIngrediente = true;
-                        Debug.Log(pontuacao);
-
+                        Debug.Log(pontuacaoAtual.pontuacaoDaFase);
                     }
                     else if (saborPremiumIngrediente.Sabor.Equals(pedidoDoCliente.saborPedido03))
                     {
-                        pontuacao += 100;
+                        pontuacaoAtual.pontuacaoDaFase += 100;
                         terceiroIngrediente = true;
-                        Debug.Log(pontuacao);
-
+                        Debug.Log(pontuacaoAtual.pontuacaoDaFase);
                     }
                 }
             }
@@ -258,9 +252,17 @@ public class Cliente : MonoBehaviour
                     pratoRecebido = null;
                     pedidoDoCliente = null;
                     sortearMesas();
+                    ResetIngredientes();
                 }
             }
         }
+    }
+
+    void ResetIngredientes()
+    {
+        primeiroIngrediente = false;
+        segundoIngrediente = false;
+        terceiroIngrediente = false;
     }
 
     public int SortearLocal(Positions[] posicao)

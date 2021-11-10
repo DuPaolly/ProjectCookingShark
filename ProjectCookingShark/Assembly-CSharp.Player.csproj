@@ -57,8 +57,10 @@
     <Compile Include="Assets\Script\Fluxo de Jogo\Receita.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\CheckerPrato.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\PratoCliente.cs" />
+    <Compile Include="Assets\Script\Genericas\Positions.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\Frigideira.cs" />
     <Compile Include="Assets\Script\TestesEDebugs.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\ClienteManager.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\Cliente.cs" />
     <Compile Include="Assets\Script\Genericas\Draggable.cs" />
     <Compile Include="Assets\Script\MiniGames\MiniGameManager.cs" />
@@ -75,8 +77,7 @@
     <Compile Include="Assets\Script\Fluxo de Jogo\Ingrediente.cs" />
     <Compile Include="Assets\Script\MudarCena.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\ListaDePedidos.cs" />
-    <Compile Include="Assets\Script\Genericas\Positions.cs" />
-    <Compile Include="Assets\Script\Fluxo de Jogo\ClienteManager.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\Pontuacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
