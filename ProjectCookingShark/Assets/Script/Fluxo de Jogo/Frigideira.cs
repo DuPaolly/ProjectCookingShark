@@ -13,7 +13,7 @@ public class Frigideira : Receita
 
     private Lixeira lixeira;
 
-    private PratoCliente pratoDoCliente;
+    private BandejaCliente pratoDoCliente;
 
     public Receita receitaAtual;
 
@@ -62,7 +62,7 @@ public class Frigideira : Receita
             lixeira = lixeiraEncontrada;
         }
 
-        PratoCliente pratoEncontrado = areaEmQueEncostou.GetComponent<PratoCliente>();
+        BandejaCliente pratoEncontrado = areaEmQueEncostou.GetComponent<BandejaCliente>();
 
         if (pratoEncontrado != null)
         {
@@ -78,7 +78,7 @@ public class Frigideira : Receita
             lixeira = null;
         }
 
-        PratoCliente pratoQuePerdeu = areaEmQueSaiu.GetComponent<PratoCliente>();
+        BandejaCliente pratoQuePerdeu = areaEmQueSaiu.GetComponent<BandejaCliente>();
 
         if (pratoQuePerdeu != null)
         {

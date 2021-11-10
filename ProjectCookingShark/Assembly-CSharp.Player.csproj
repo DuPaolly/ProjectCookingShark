@@ -56,7 +56,7 @@
     <Compile Include="Assets\Script\Menu Inicial\MenuInicial.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\Receita.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\CheckerPrato.cs" />
-    <Compile Include="Assets\Script\Fluxo de Jogo\PratoCliente.cs" />
+    <Compile Include="Assets\Script\Fluxo de Jogo\BandejaCliente.cs" />
     <Compile Include="Assets\Script\Genericas\Positions.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\Frigideira.cs" />
     <Compile Include="Assets\Script\TestesEDebugs.cs" />
