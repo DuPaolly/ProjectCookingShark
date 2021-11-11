@@ -50,19 +50,30 @@ public class Cliente : MonoBehaviour
 
     [SerializeField] [Range(0, 1)] float smoothVelocidade = 1;
 
+    [SerializeField] int[] randomSpawn;
+
+    float tempoSpawnando = 4;
+
+    float tempoDeSpawn = 0;
+
+    bool podeSpawnar = false;
+
     private void Awake()
     {
         sortearMesas();
+        tempoDeSpawn = 0;
+        CreatRandomSpawnTime();
     }
 
     void Start()
     {
-
+        Random.InitState((int)System.DateTime.Now.Ticks);
     }
     void FixedUpdate()
     {
         IngredientePremiumParaOCliente();
-        managerCliente();
+        Spawner();
+        ManagerCliente();
     }
 
     private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
@@ -100,6 +111,59 @@ public class Cliente : MonoBehaviour
         }
     }
 
+    void Spawner()
+    {
+        if (podeSpawnar == false)
+        {
+            tempoDeSpawn += Time.deltaTime;
+            Debug.Log(tempoDeSpawn);
+            if (tempoDeSpawn >= tempoSpawnando)
+            {
+                podeSpawnar = true;
+            }
+        }
+    }
+
+    void ManagerCliente()
+    {
+        if (pratoRecebido == null && podeSpawnar == true)
+        {
+            if (localDetectado != null && !localDetectado.mesa)
+            {
+                //sortearMesas();
+                MoverPersonagemParaMesa();
+            }
+            else if (localDetectado != null && localDetectado.mesa)
+            {
+                MoverPersonagemParaMesa();
+                if (pedidoDoCliente == null)
+                {
+                    SortearPedidoDoCliente();
+                }
+            }
+            else
+            {
+                MoverPersonagemParaMesa();
+            }
+        }
+        else
+        {
+            VaParaPosicao(posicoesDeEntradaESaida[saida]);
+            Pontuacao();
+            if (localDetectado != null)
+            {
+                CreatRandomSpawnTime();
+                if (localDetectado == posicoesDeEntradaESaida[saida])
+                {
+                    pratoRecebido = null;
+                    pedidoDoCliente = null;
+                    sortearMesas();
+                    ResetIngredientes();
+                }
+            }
+        }
+    }
+
     private void MoverPersonagemParaMesa ()
     {        
         VaParaPosicao(posicoesDosClientes); 
@@ -122,6 +186,94 @@ public class Cliente : MonoBehaviour
                 saborPremiumIngrediente = null;
             }
         }
+    }
+
+    
+
+    public void SortearPedidoDoCliente()
+    {
+        sortearNumero = SortearNumeroDoPedido();
+
+        pedidoDoCliente = listaDePedidos.pedidosPossiveis[sortearNumero];
+
+        if (pedidoDoCliente.PremiumIngredienteDoCliente == Pedido.IngredientePremiumDoClente.PrimeiroIngredientePremium)
+        {
+            pedidoDoCliente.saborPedido03 = pedidoDoCliente.SaborPedido01;
+        }
+        else if (pedidoDoCliente.PremiumIngredienteDoCliente == Pedido.IngredientePremiumDoClente.SegundoIngredientePremium)
+        {
+            pedidoDoCliente.saborPedido03 = pedidoDoCliente.SaborPedido02;
+        }
+        else
+        {
+            pedidoDoCliente.saborPedido03 = Sabores.SaboresExistentes.nenhum;
+        }
+
+        Debug.Log(pedidoDoCliente.SaborPedido01);
+        Debug.Log(pedidoDoCliente.SaborPedido02);
+        Debug.Log(pedidoDoCliente.IngredienteProibidoPedido);
+        Debug.Log(pedidoDoCliente.saborPedido03);
+    }
+
+    public int SortearNumeroDoPedido()
+    {
+        return Random.Range(0, listaDePedidos.pedidosPossiveis.Length);
+    }
+
+    void ResetIngredientes()
+    {
+        primeiroIngrediente = false;
+        segundoIngrediente = false;
+        terceiroIngrediente = false;
+    }
+
+    public int SortearLocal(Positions[] posicao)
+    {
+        return Random.Range(0, posicao.Length);
+    }
+
+    public void sortearMesas()
+    {
+        saida = SortearLocal(posicoesDeEntradaESaida);
+        _originalPosition = posicoesDeEntradaESaida[SortearLocal(posicoesDeEntradaESaida)].transform.position;
+        transform.position = _originalPosition;
+    }
+
+    public void VaParaPosicao(Positions posicao)
+    {
+        _originalPosition = posicao.transform.position;
+        
+        _posicaoAtual = transform.position;
+
+        _posicaoAtual = Vector3.Lerp(
+            transform.position,
+            _originalPosition,
+            smoothVelocidade * Time.deltaTime);
+
+        transform.position = _posicaoAtual;  
+    }
+
+    public bool PodeVoltarAPosiçãoInicial()
+    {
+        return true;
+    }
+
+    public bool JaChegouNoDestino()
+    {
+        return false;
+    }
+
+    void CreatRandomSpawnTime()
+    {
+        tempoSpawnando = randomSpawn[SortearLocal()];
+        Debug.Log(tempoSpawnando);
+    }
+
+    public int SortearLocal()
+    {
+        podeSpawnar = false;
+        tempoDeSpawn = 0;
+        return Random.Range(0, randomSpawn.Length);
     }
 
     public void Pontuacao()
@@ -187,119 +339,6 @@ public class Cliente : MonoBehaviour
             }
 
         }
-    }
-
-    public void SortearPedidoDoCliente()
-    {
-        sortearNumero = SortearNumeroDoPedido();
-
-        pedidoDoCliente = listaDePedidos.pedidosPossiveis[sortearNumero];
-
-        if (pedidoDoCliente.PremiumIngredienteDoCliente == Pedido.IngredientePremiumDoClente.PrimeiroIngredientePremium)
-        {
-            pedidoDoCliente.saborPedido03 = pedidoDoCliente.SaborPedido01;
-        }
-        else if (pedidoDoCliente.PremiumIngredienteDoCliente == Pedido.IngredientePremiumDoClente.SegundoIngredientePremium)
-        {
-            pedidoDoCliente.saborPedido03 = pedidoDoCliente.SaborPedido02;
-        }
-        else
-        {
-            pedidoDoCliente.saborPedido03 = Sabores.SaboresExistentes.nenhum;
-        }
-
-        Debug.Log(pedidoDoCliente.SaborPedido01);
-        Debug.Log(pedidoDoCliente.SaborPedido02);
-        Debug.Log(pedidoDoCliente.IngredienteProibidoPedido);
-        Debug.Log(pedidoDoCliente.saborPedido03);
-    }
-
-    public int SortearNumeroDoPedido()
-    {
-        return Random.Range(0, listaDePedidos.pedidosPossiveis.Length);
-    }
-
-    void managerCliente()
-    {
-        if (pratoRecebido == null)
-        {
-            if (localDetectado != null && !localDetectado.mesa)
-            {
-                //sortearMesas();
-                MoverPersonagemParaMesa();
-            }
-            else if (localDetectado != null && localDetectado.mesa)
-            {
-                MoverPersonagemParaMesa();
-                if (pedidoDoCliente == null)
-                {
-                    SortearPedidoDoCliente();
-                }         
-            }
-            else
-            {
-                MoverPersonagemParaMesa();
-            }
-        }
-        else 
-        {
-            VaParaPosicao(posicoesDeEntradaESaida[saida]);
-            Pontuacao();
-            if (localDetectado != null)
-            {
-                if (localDetectado == posicoesDeEntradaESaida[saida])
-                {
-                    pratoRecebido = null;
-                    pedidoDoCliente = null;
-                    sortearMesas();
-                    ResetIngredientes();
-                }
-            }
-        }
-    }
-
-    void ResetIngredientes()
-    {
-        primeiroIngrediente = false;
-        segundoIngrediente = false;
-        terceiroIngrediente = false;
-    }
-
-    public int SortearLocal(Positions[] posicao)
-    {
-        return Random.Range(0, posicao.Length);
-    }
-
-    public void sortearMesas()
-    {
-        saida = SortearLocal(posicoesDeEntradaESaida);
-        _originalPosition = posicoesDeEntradaESaida[SortearLocal(posicoesDeEntradaESaida)].transform.position;
-        transform.position = _originalPosition;
-    }
-
-    public void VaParaPosicao(Positions posicao)
-    {
-        _originalPosition = posicao.transform.position;
-        
-        _posicaoAtual = transform.position;
-
-        _posicaoAtual = Vector3.Lerp(
-            transform.position,
-            _originalPosition,
-            smoothVelocidade * Time.deltaTime);
-
-        transform.position = _posicaoAtual;  
-    }
-
-    public bool PodeVoltarAPosiçãoInicial()
-    {
-        return true;
-    }
-
-    public bool JaChegouNoDestino()
-    {
-        return false;
-    }
-
+    }   
 
 }

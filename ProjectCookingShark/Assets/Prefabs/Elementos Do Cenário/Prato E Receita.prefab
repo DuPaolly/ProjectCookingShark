@@ -174,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 6088852833507438522}
     - target: {fileID: 5123287601770239377, guid: dd29d154c6f8a244684db62fc9a1ac8d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PodeVerificarOPrato
+      value: Cozinhar
       objectReference: {fileID: 0}
     - target: {fileID: 5123287601770239377, guid: dd29d154c6f8a244684db62fc9a1ac8d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

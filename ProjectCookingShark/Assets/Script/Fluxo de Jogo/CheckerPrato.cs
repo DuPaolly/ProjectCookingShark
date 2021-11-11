@@ -10,9 +10,19 @@ public class CheckerPrato : MonoBehaviour
     public bool ingrediente1Achado = false;
     public bool ingrediente2Achado = false;
     public int  id = 0;
+
+    [SerializeField] [Range(0,60)] float tempoDeCozimento = 2;
+
+    float tempoDeCozinhando = 0;
+
+    [Range (1,3)] int cozinhado;
+    //1: cozinhando
+    //2: cozinhado
+    //3: sem nada na frigideira
+
     private void Update()
     {
-        //CheckPrato();
+        EstaCozinhando();
     }
 
     public Receita CheckPrato(Frigideira pratoFeito)
@@ -72,9 +82,10 @@ public class CheckerPrato : MonoBehaviour
         {
             pratoFeito.receitaAtual = CheckPrato(pratoFeito);
         }
-
     }
 
+    
+    
     //[SerializeField] Text TextoPrato;
     //TextoPrato.text = "Arroz";
     //TextoPrato.gameObject.SetActive(true);
@@ -83,6 +94,30 @@ public class CheckerPrato : MonoBehaviour
     void AtualizaSpriteDoPrato(Sprite spriteDoPrato)
     {
         spritePrato.sprite = spriteDoPrato;
+    }
+
+    void EstaCozinhando()
+    {
+        if (cozinhado == 1)
+        {
+            tempoDeCozinhando += Time.deltaTime;
+            Debug.Log(tempoDeCozinhando);
+            if (tempoDeCozinhando >= tempoDeCozimento)
+            {
+                cozinhado = 2;
+            }
+        }
+        else if(cozinhado == 2)
+        {
+            PodeVerificarOPrato();
+            cozinhado = 3;
+        }
+    }
+
+    public void Cozinhar()
+    {
+        tempoDeCozinhando = 0;
+        cozinhado = 1;
     }
 }
 

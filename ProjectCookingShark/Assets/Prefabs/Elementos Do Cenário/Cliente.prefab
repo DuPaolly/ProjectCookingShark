@@ -111,6 +111,7 @@ MonoBehaviour:
   saida: 0
   podeIr: 0
   smoothVelocidade: 1
+  randomSpawn: 02000000050000000a0000000f000000
 --- !u!61 &1938155080671331224
 BoxCollider2D:
   m_ObjectHideFlags: 0
