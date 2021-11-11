@@ -221,7 +221,8 @@ public class Frigideira : Receita
         {
             pratoDoCliente.premiumIngrediente = premiumIngredientes;
             pratoDoCliente.pratoServido = receitaAtual;              
-
+            //desligar sprite da receita
+            //ligar o sprite da bandeja
             podeVoltar = PodeVoltarAPosiçãoInicial();
             DescartaIngrediente();
         }

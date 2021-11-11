@@ -68,6 +68,6 @@ public class RaladorMiniGame : MiniGameBase
         {
             trIngrediente.position = Camera.current.ScreenToWorldPoint(posicaoDoMouse);
         }
-        
+        //Grude no mouse
     }
 }

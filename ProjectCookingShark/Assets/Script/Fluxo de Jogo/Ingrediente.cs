@@ -127,6 +127,8 @@ public class Ingrediente : Sabores
 
     private void MouseDragUpdate()
     {
+        //sprite aki
+        //enquanto segura
         podeVoltar = JaChegouNoDestino();
         transform.position = GetMousePos();
     }
