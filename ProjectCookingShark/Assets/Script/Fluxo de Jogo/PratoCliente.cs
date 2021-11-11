@@ -59,7 +59,7 @@ public class PratoCliente : Draggable
         {
             cliente.ingredientePremium = premiumIngrediente;
             cliente.pratoRecebido = pratoServido;
-
+            //desligar o sprite
             DescartaPrato();
         }
         podeVoltar = PodeVoltarAPosiçãoInicial();

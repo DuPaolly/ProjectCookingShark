@@ -207,7 +207,7 @@ public class Cliente : MonoBehaviour
         {
             pedidoDoCliente.saborPedido03 = Sabores.SaboresExistentes.nenhum;
         }
-
+        //Pedidos aki!!
         Debug.Log(pedidoDoCliente.SaborPedido01);
         Debug.Log(pedidoDoCliente.SaborPedido02);
         Debug.Log(pedidoDoCliente.IngredienteProibidoPedido);

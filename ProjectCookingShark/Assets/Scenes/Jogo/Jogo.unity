@@ -604,6 +604,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 674363711}
     m_Modifications:
+    - target: {fileID: 614076476613377752, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 614076476613377753, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 614076476613377753, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.74
+      objectReference: {fileID: 0}
     - target: {fileID: 614076476945896465, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
       propertyPath: m_Name
       value: MiniGameRalador
@@ -618,11 +630,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 614076476945896467, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.41
       objectReference: {fileID: 0}
     - target: {fileID: 614076476945896467, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.77
       objectReference: {fileID: 0}
     - target: {fileID: 614076476945896467, guid: 3a13d44c02547f141a7d1ddeb49415f4, type: 3}
       propertyPath: m_LocalPosition.z
