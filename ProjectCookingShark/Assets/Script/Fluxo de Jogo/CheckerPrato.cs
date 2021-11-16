@@ -6,7 +6,7 @@ public class CheckerPrato : MonoBehaviour
 {
     [SerializeField] Frigideira pratoFeito;
     [SerializeField] Receita[] receitasPossiveis;
-    [SerializeField] SpriteRenderer spritePrato;
+    [SerializeField] public SpriteRenderer spritePrato;
 
     public bool ingrediente1Achado = false;
     public bool ingrediente2Achado = false;
@@ -66,10 +66,12 @@ public class CheckerPrato : MonoBehaviour
             }
         }
 
-        Debug.Log("Oia s� q receita bunita");
+        Debug.Log("Oia só q receita bunita");
         Debug.Log(receitasPossiveis[id]);
         
         AtualizaSpriteDoPrato(receitasPossiveis[id].spriteDaReceita);
+        //ingrediente1Achado = false;
+        //ingrediente2Achado = false;
         return receitasPossiveis[id];
         
     }
@@ -93,7 +95,7 @@ public class CheckerPrato : MonoBehaviour
     //TextoPrato.gameObject.SetActive(true);
     //[SerializeField] SpriteRenderer spritePrato;
 
-    void AtualizaSpriteDoPrato(Sprite spriteDoPrato)
+    public void AtualizaSpriteDoPrato(Sprite spriteDoPrato)
     {
         pratoFeito.ingredientes01.gameObject.SetActive(false);
         pratoFeito.ingredientes02.gameObject.SetActive(false);

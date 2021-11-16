@@ -14,6 +14,9 @@ public class Ingrediente : Sabores
 
     [SerializeField] public MiniGameManager.TipoMiniGame minigame;
 
+    [SerializeField] Sprite spriteDoIngredienteSolo;
+    [SerializeField] SpriteRenderer spriteDoIngredienteSoloPraFuncao;
+
     int smoothVelocidade = 20;
 
     private bool podeVoltar;
@@ -129,6 +132,7 @@ public class Ingrediente : Sabores
     {
         //sprite aki
         //enquanto segura
+        //TrocarOSpriteDoPratoNoDrag(spriteDoIngredienteSolo);
         podeVoltar = JaChegouNoDestino();
         transform.position = GetMousePos();
     }
@@ -143,5 +147,11 @@ public class Ingrediente : Sabores
         transform.position = pratoEmProducao.transform.position;
         transform.SetParent(pratoEmProducao.transform);
     }
+
+    //void TrocarOSpriteDoPratoNoDrag(Sprite spriteDoIngredienteSolo)
+    //{
+    //    //spriteDoIngredienteSoloPraFuncao.gameObject.SetActive(true);
+    //    //spriteDoIngredienteSoloPraFuncao.sprite = spriteDoIngredienteSolo;
+    //}
 
 }

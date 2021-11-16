@@ -99,6 +99,7 @@ MonoBehaviour:
   nomeDoIngrediente: AnemonaPicada
   sabor: 2
   minigame: 0
+  spriteDoIngredienteSolo: {fileID: 21300000, guid: 79702a72f349f024188f5c66502df2e4, type: 3}
 --- !u!61 &2980469989264295124
 BoxCollider2D:
   m_ObjectHideFlags: 0

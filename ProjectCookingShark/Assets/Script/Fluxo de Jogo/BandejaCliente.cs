@@ -10,9 +10,12 @@ public class BandejaCliente : Draggable
 
     public Frigideira.IngredientePremium premiumIngrediente;
 
+    [SerializeField] public SpriteRenderer spriteDaReceitaFinal;
+
     void FixedUpdate()
     {
         VolteParaPosicao();
+        MudarSpriteDaReceitaNaBandeja();
     }
 
     private void OnTriggerEnter2D(Collider2D areaEmQueEncostou)
@@ -58,7 +61,6 @@ public class BandejaCliente : Draggable
         {
             cliente.ingredientePremium = premiumIngrediente;
             cliente.pratoRecebido = pratoServido;
-            //desligar o sprite
             DescartaPrato();
         }
         podeVoltar = PodeVoltarAPosiçãoInicial();
@@ -68,5 +70,25 @@ public class BandejaCliente : Draggable
     {
         premiumIngrediente = Frigideira.IngredientePremium.SemIngredientePremium;
         pratoServido = null;
+        //desligar o sprite
+    }
+
+    void MudarSpriteDaReceitaNaBandeja()
+    {
+        if (pratoServido != null)
+        {
+            AtualizaSpriteDoPratoNaBandeja(pratoServido.spriteDaReceitaNaBandeja);
+            //mudar o sprite
+        }
+        else
+        {
+            spriteDaReceitaFinal.gameObject.SetActive(false);
+            //desativar o sprite
+        }
+    }
+    public void AtualizaSpriteDoPratoNaBandeja(Sprite spriteFinal)
+    {
+        spriteDaReceitaFinal.gameObject.SetActive(true);
+        spriteDaReceitaFinal.sprite = spriteFinal;
     }
 }

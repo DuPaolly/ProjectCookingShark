@@ -13,7 +13,10 @@ public class Receita : MonoBehaviour
 
     [SerializeField] public Ingrediente ingredientes02;
     //public Ingrediente ingredientes02 => ingredientes02;
+
     [SerializeField] public Sprite spriteDaReceita;
+
+    [SerializeField] public Sprite spriteDaReceitaNaBandeja;
 
 
     private void Update()

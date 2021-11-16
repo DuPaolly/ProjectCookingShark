@@ -98,7 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeDoIngrediente: "Pimenta Pac\xEDfica"
   sabor: 1
-  minigame: 1
+  minigame: 0
+  spriteDoIngredienteSolo: {fileID: 0}
+  spriteDoIngredienteSoloPraFuncao: {fileID: 0}
 --- !u!61 &2980469989264295124
 BoxCollider2D:
   m_ObjectHideFlags: 0

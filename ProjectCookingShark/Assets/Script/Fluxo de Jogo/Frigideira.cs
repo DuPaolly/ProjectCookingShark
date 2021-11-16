@@ -28,6 +28,8 @@ public class Frigideira : Receita
 
     [SerializeField] CheckerPrato inventarioDeReceita;
 
+    [SerializeField] public SpriteRenderer spriteNaFrigideira;
+
     public enum IngredientePremium
     {
         SemIngredientePremium,
@@ -220,18 +222,28 @@ public class Frigideira : Receita
         if (pratoDoCliente != null && receitaAtual != null && receitaAtual.NomePrato != Gororoba.NomePrato)
         {
             pratoDoCliente.premiumIngrediente = premiumIngredientes;
-            pratoDoCliente.pratoServido = receitaAtual;              
+            pratoDoCliente.pratoServido = receitaAtual;
             //desligar sprite da receita
             //ligar o sprite da bandeja
+            DesativarOSprite(receitaAtual.spriteDaReceita);
             podeVoltar = PodeVoltarAPosiçãoInicial();
             DescartaIngrediente();
         }
         else if(lixeira != null)
         {
             DescartaIngrediente();
+            DesativarOSprite(receitaAtual.spriteDaReceita);
             podeVoltar = PodeVoltarAPosiçãoInicial();
         }
+        
         podeVoltar = PodeVoltarAPosiçãoInicial();
+    }
+
+    void DesativarOSprite(Sprite spriteFrigideira)
+    {
+        spriteNaFrigideira.sprite = spriteFrigideira;
+        spriteNaFrigideira.gameObject.SetActive(false);
+
     }
 
 }
