@@ -15,7 +15,7 @@ TagManager:
   - Ralador
   - FoodBoat
   - Utensilios
-  - 
+  - MiniGameFaca
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: MenuDeIngredientes
     uniqueID: 2186996813
+    locked: 0
+  - name: MiniGames
+    uniqueID: 2963793855
     locked: 0
