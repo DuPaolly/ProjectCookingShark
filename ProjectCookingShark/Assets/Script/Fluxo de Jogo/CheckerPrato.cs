@@ -90,9 +90,7 @@ public class CheckerPrato : MonoBehaviour
 
     
     
-    //[SerializeField] Text TextoPrato;
-    //TextoPrato.text = "Arroz";
-    //TextoPrato.gameObject.SetActive(true);
+    
     //[SerializeField] SpriteRenderer spritePrato;
 
     public void AtualizaSpriteDoPrato(Sprite spriteDoPrato)

@@ -31,14 +31,14 @@ public class MiniGameManager : MonoBehaviour
         instancia = null;
     }
 
-    public static void IniciaMiniGame(TipoMiniGame miniGameParaIniciar)
+    public static void IniciaMiniGame(TipoMiniGame miniGameParaIniciar, Ingrediente ingredienteParaProduzir)
     {
         Debug.Log($"MiniGame {miniGameParaIniciar}");
 
         switch (miniGameParaIniciar)
         {
             case TipoMiniGame.Tabua:
-                instancia.miniGameTabua.InicializaMiniGame(5);
+                instancia.miniGameTabua.InicializaMiniGame(5, ingredienteParaProduzir);
 
                 instancia.miniGameRalador.SetActive(false);
                 break;

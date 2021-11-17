@@ -37,7 +37,7 @@ public class Draggable : MonoBehaviour
 
     public Vector3 GetMousePos()
     {
-        podeVoltar = JaChegouNoDestino();
+        //podeVoltar = JaChegouNoDestino();
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         return mousePos;
@@ -56,10 +56,10 @@ public class Draggable : MonoBehaviour
             transform.position = _posicaoAtual;
 
         }
-        else if (transform.position == _originalPosition)
-        {
-            podeVoltar = JaChegouNoDestino();
-        }
+        //else if (transform.position == _originalPosition)
+        //{
+        //    podeVoltar = JaChegouNoDestino();
+        //}
     }
 
     public bool PodeVoltarAPosiçãoInicial()

@@ -80,6 +80,7 @@
     <Compile Include="Assets\Script\MudarCena.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\ListaDePedidos.cs" />
     <Compile Include="Assets\Script\Fluxo de Jogo\Pontuacao.cs" />
+    <Compile Include="Assets\Script\MiniGames\IngredienteDoRalador.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

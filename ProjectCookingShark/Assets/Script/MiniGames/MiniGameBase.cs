@@ -10,9 +10,9 @@ public class MiniGameBase : MonoBehaviour
     [SerializeField] public SpriteRenderer ingredienteNoMiniGame;
 
     //Sprite ingredienteParaProduzir
-    public virtual void InicializaMiniGame(int condicaoDeEncerramento)
+    public virtual void InicializaMiniGame(int condicaoDeEncerramento, Ingrediente IngredienteEmProducao)
     {
-        //ingredienteNoMiniGame.sprite = ingredienteParaProduzir;
+        ingredienteNoMiniGame.sprite = IngredienteEmProducao.spriteDoIngredienteSolo;
         canvasMiniGame.SetActive(true);
         miniGameEmProducao = true;
     }

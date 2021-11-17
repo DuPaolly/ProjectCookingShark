@@ -86,7 +86,7 @@ public class Ingrediente : Sabores
             else
             {
                 AdicionarOIngredienteAoPrato();
-                MiniGameManager.IniciaMiniGame(minigame);
+                MiniGameManager.IniciaMiniGame(minigame, this);
                 //Start Minigame
                 podeVoltar = JaChegouNoDestino();
             }

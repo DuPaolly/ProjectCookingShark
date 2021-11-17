@@ -62,12 +62,12 @@ public class RaladorMiniGame : MiniGameBase
 
     private void LateUpdate()
     {
-        posicaoDoMouse = Input.mousePosition;
-        posicaoDoMouse.z = profundidadeDoMouse;
-        if(Camera.current != null)
-        {
-            trIngrediente.position = Camera.current.ScreenToWorldPoint(posicaoDoMouse);
-        }
+        //posicaoDoMouse = Input.mousePosition;
+        //posicaoDoMouse.z = profundidadeDoMouse;
+        //if(Camera.current != null)
+        //{
+        //    trIngrediente.position = Camera.current.ScreenToWorldPoint(posicaoDoMouse);
+        //}
         //Grude no mouse
     }
 }

@@ -28,10 +28,10 @@ public class MiniGameFaca : MiniGameBase
     }
 
     //Sprite ingredienteParaCortar
-    public override void InicializaMiniGame(int novoLimiteDeCorte)
+    public override void InicializaMiniGame(int novoLimiteDeCorte, Ingrediente ingredienteParaCortar)
     {
         //ingredienteParaCortar
-        base.InicializaMiniGame(novoLimiteDeCorte);
+        base.InicializaMiniGame(novoLimiteDeCorte, ingredienteParaCortar);
         limiteDeCorte = novoLimiteDeCorte;
         corte = 0;
         faca.enabled = true;

@@ -98,7 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomeDoIngrediente: RaspasDeCoral
   sabor: 2
-  minigame: 0
+  minigame: 1
+  spriteDoIngredienteSolo: {fileID: 0}
+  spriteDoIngredienteSoloPraFuncao: {fileID: 0}
 --- !u!61 &5666719465753310208
 BoxCollider2D:
   m_ObjectHideFlags: 0

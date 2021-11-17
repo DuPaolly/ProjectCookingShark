@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+using Random = UnityEngine.Random;
 
 public class Cliente : MonoBehaviour
 {
@@ -51,6 +54,8 @@ public class Cliente : MonoBehaviour
 
     [SerializeField] int[] randomSpawn;
 
+    [SerializeField] Button botaoDaInfoDoPedido;
+
     float tempoSpawnando = 4;
 
     float tempoDeSpawn = 0;
@@ -62,6 +67,7 @@ public class Cliente : MonoBehaviour
         sortearMesas();
         tempoDeSpawn = 0;
         CreatRandomSpawnTime();
+        botaoDaInfoDoPedido.gameObject.SetActive(false);
     }
 
     void Start()
@@ -134,10 +140,12 @@ public class Cliente : MonoBehaviour
             }
             else if (localDetectado != null && localDetectado.mesa)
             {
+                
                 MoverPersonagemParaMesa();
                 if (pedidoDoCliente == null)
                 {
                     SortearPedidoDoCliente();
+                    botaoDaInfoDoPedido.gameObject.SetActive(true);
                 }
             }
             else
@@ -168,7 +176,8 @@ public class Cliente : MonoBehaviour
     }
 
     private void MoverPersonagemParaMesa ()
-    {        
+    {
+        
         VaParaPosicao(posicoesDosClientes); 
     }
 
@@ -212,10 +221,14 @@ public class Cliente : MonoBehaviour
             pedidoDoCliente.saborPedido03 = Sabores.SaboresExistentes.nenhum;
         }
         //Pedidos aki!!
+
+        TextoDoPedido(pedidoDoCliente.SaborPedido01, pedidoDoCliente.SaborPedido02, pedidoDoCliente.IngredienteProibidoPedido.NomeDoIngrediente);
+
         Debug.Log(pedidoDoCliente.SaborPedido01);
         Debug.Log(pedidoDoCliente.SaborPedido02);
         Debug.Log(pedidoDoCliente.IngredienteProibidoPedido);
         Debug.Log(pedidoDoCliente.saborPedido03);
+
     }
 
     public int SortearNumeroDoPedido()
@@ -244,6 +257,7 @@ public class Cliente : MonoBehaviour
 
     public void VaParaPosicao(Positions posicao)
     {
+
         _originalPosition = posicao.transform.position;
         
         _posicaoAtual = transform.position;
@@ -253,7 +267,8 @@ public class Cliente : MonoBehaviour
             _originalPosition,
             smoothVelocidade * Time.deltaTime);
 
-        transform.position = _posicaoAtual;  
+        transform.position = _posicaoAtual;
+        
     }
 
     public bool PodeVoltarAPosiçãoInicial()
@@ -342,6 +357,46 @@ public class Cliente : MonoBehaviour
             }
 
         }
-    }   
+    }
+
+    //[SerializeField] Text TextoPrato;
+    //TextoPrato.text = "Arroz";
+    //TextoPrato.gameObject.SetActive(true);
+
+    [SerializeField] Text saborParaImprimir1;
+    [SerializeField] Text saborParaImprimir2;
+    [SerializeField] Text ingredienteProibidoParaImprimir;
+    [SerializeField] Image ingredientePremium1;
+    [SerializeField] Image ingredientePremium2;
+    void TextoDoPedido(Sabores.SaboresExistentes sabor1, Sabores.SaboresExistentes sabor2, string ingredienteProib)
+    {
+        //Enum.GetName(typeof(Sabores.SaboresExistentes), sabor1);
+        saborParaImprimir1.text = Enum.GetName(typeof(Sabores.SaboresExistentes), sabor1);
+        saborParaImprimir1.gameObject.SetActive(true);
+
+        saborParaImprimir2.text = Enum.GetName(typeof(Sabores.SaboresExistentes), sabor2);
+        saborParaImprimir2.gameObject.SetActive(true);
+
+        ingredienteProibidoParaImprimir.text = ingredienteProib;
+        ingredienteProibidoParaImprimir.gameObject.SetActive(true);
+
+        if(pedidoDoCliente.saborPedido03 != Sabores.SaboresExistentes.nenhum)
+        {
+            if (pedidoDoCliente.saborPedido03 == pedidoDoCliente.SaborPedido01)
+            {
+                ingredientePremium1.gameObject.SetActive(true);
+            }
+            else
+            {
+                ingredientePremium2.gameObject.SetActive(true);
+            }
+  
+        }
+        else
+        {
+            ingredientePremium1.gameObject.SetActive(false);
+            ingredientePremium2.gameObject.SetActive(false);
+        }
+    }
 
 }

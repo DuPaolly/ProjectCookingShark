@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasMiniGame: {fileID: 6197374858773187365}
+  ingredienteNoMiniGame: {fileID: 2826505078282255787}
   faca: {fileID: 6197374858213779262}
 --- !u!1 &6197374859178934622
 GameObject:
