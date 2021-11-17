@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Cliente : MonoBehaviour
 {
-    [SerializeField] 
 
     int pontuacao = 0;
 
@@ -145,6 +144,10 @@ public class Cliente : MonoBehaviour
             {
                 MoverPersonagemParaMesa();
             }
+        }
+        else if(pratoRecebido == null && podeSpawnar == false) 
+        {
+            VaParaPosicao(posicoesDeEntradaESaida[saida]);
         }
         else
         {

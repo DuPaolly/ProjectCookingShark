@@ -48,3 +48,6 @@ TagManager:
   - name: MiniGames
     uniqueID: 2963793855
     locked: 0
+  - name: Cliente
+    uniqueID: 2130425673
+    locked: 0
