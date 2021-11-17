@@ -385,9 +385,11 @@ public class Cliente : MonoBehaviour
             if (pedidoDoCliente.saborPedido03 == pedidoDoCliente.SaborPedido01)
             {
                 ingredientePremium1.gameObject.SetActive(true);
+                ingredientePremium2.gameObject.SetActive(false);
             }
             else
             {
+                ingredientePremium1.gameObject.SetActive(false);
                 ingredientePremium2.gameObject.SetActive(true);
             }
   
