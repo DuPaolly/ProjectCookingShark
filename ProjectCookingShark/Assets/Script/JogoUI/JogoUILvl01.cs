@@ -22,4 +22,9 @@ public class JogoUILvl01 : MonoBehaviour
     {
         PopUpPedido.SetActive(true);
     }
+
+    public void FecharOVisualizadorDePedidos()
+    {
+        PopUpPedido.SetActive(false);
+    }
 }

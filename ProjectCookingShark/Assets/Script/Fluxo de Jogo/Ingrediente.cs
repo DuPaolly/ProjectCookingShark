@@ -15,7 +15,7 @@ public class Ingrediente : Sabores
     [SerializeField] public MiniGameManager.TipoMiniGame minigame;
 
     [SerializeField] public Sprite spriteDoIngredienteSolo;
-    [SerializeField] public SpriteRenderer spriteDoIngredienteSoloPraFuncao;
+    [SerializeField] public Sprite spriteDoIngredientePronto;
 
     int smoothVelocidade = 20;
 

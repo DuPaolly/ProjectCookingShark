@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 731ce1784edbb8f4ca6546e2a3be2cbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cd94f9f93da2c742a2ed1e74a2d7741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   nomeDoIngrediente: "Sal Oce\xE2nico"
   sabor: 4
   minigame: 0
-  spriteDoIngredienteSolo: {fileID: 0}
-  spriteDoIngredienteSoloPraFuncao: {fileID: 0}
+  spriteDoIngredienteSolo: {fileID: 21300000, guid: 5b2078ff281d2ae4789a5de8922452f4, type: 3}
+  spriteDoIngredientePronto: {fileID: 21300000, guid: 1a1a14870a9b97047a83b3f88fb2c447, type: 3}
 --- !u!61 &2980469989264295124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 3.39}
+    oldSize: {x: 4.56, y: 2.79}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

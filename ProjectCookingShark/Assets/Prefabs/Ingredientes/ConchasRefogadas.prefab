@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 67e43319baf3deb4b8b3fa44006cb92d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43a8f0a1ef3106f4fbde2ab26c9d82d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   nomeDoIngrediente: Conhas Refogadas
   sabor: 4
   minigame: 0
+  spriteDoIngredienteSolo: {fileID: 21300000, guid: 43a8f0a1ef3106f4fbde2ab26c9d82d2, type: 3}
+  spriteDoIngredientePronto: {fileID: 21300000, guid: 64a4eb2d24c2cea4e833cc1bded98f98, type: 3}
 --- !u!61 &2980469989264295124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +118,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.19, y: 2.61}
+    oldSize: {x: 2.64, y: 1.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

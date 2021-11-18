@@ -19,8 +19,12 @@ public class Pontuacao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PontuacaoUpdate();
     }
 
+    void PontuacaoUpdate()
+    {
+        Debug.Log(pontuacaoDaFase);
+    }
 
 }

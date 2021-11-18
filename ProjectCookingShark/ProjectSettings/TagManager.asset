@@ -51,3 +51,6 @@ TagManager:
   - name: Cliente
     uniqueID: 2130425673
     locked: 0
+  - name: TelaDeFimDeJogo
+    uniqueID: 2005063405
+    locked: 0
